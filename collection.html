@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="collection.css">
+    <title>spotlight × Cloud Garage</title>
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="logo-box">
+            <a href="archive.html"><img class="brand-logo" src="img/logo/brand-logo.png" alt="logo"></a>
+        </div>
+        <!-- <p class="hamburger-menu-p">Menu</p> -->
+        <div class="hamburger-menu">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <nav class="wrapper">
+            <ul class="menu">
+                <li class="menu-top"><a href="#">TOP</a></li>
+                <li class="menu-collection"><a href="collection.html">COLLECTION</a></li>
+                <li class="menu-archive"><a href="archive.html">ARCHIVE</a></li>
+                <li class="menu-category"><a href="#">CATEGORY</a></li>
+                <li class="login-login"><a href="index.html">LOGIN</a></li>
+                <li class="login-contact"><a href="contact_input.php">CONTACT</a></li>
+            </ul>
+
+            <ul class="login">
+                <div class="profiles">
+                    <!-- プロフィール画像表示 -->
+                    <div id="output-profile-photo">
+                        <img id="profile-photo" src="" alt="User Photo" onclick="location.href='resister.html';">
+                    </div>
+                    <!-- プロフィール名表示 -->
+                    <h5 id="output"></h5>
+                </div>
+            </ul>
+        </nav>
+
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- プロフィールテキストの読み込みコード -->
+        <script src="profile_textData_read.js" type="module"></script>
+
+        <!-- プロフィール画像の読み込みコード -->
+        <script src="profile_photoData_read.js" type="module"></script>
+
+    </header>
+
+    <body>
+        <p>- Red collection -</p>
+        <div class="james">
+            <a id="link-james"></a>
+            <div class="slider-james-enzo">
+                <div class="slide-container-james-enzo">
+                    <img src="img/homework/james/enzo01.jpg" />
+                    <img src="img/homework/james/enzo02.jpg" />
+                    <img src="img/homework/james/enzo03.jpg" />
+                    <img src="img/homework/james/enzo04.jpg" />
+                </div>
+                <div class="prev-james-enzo" onclick="plusSlidesEnzo(-1)">&#10094;</div>
+                <div class="next-james-enzo" onclick="plusSlidesEnzo(1)">&#10095;</div>
+            </div>
+            <script>
+                let slideIndexEnzo = 1;
+                showSlidesEnzo(slideIndexEnzo);
+
+                function plusSlidesEnzo(n) {
+                    showSlidesEnzo(slideIndexEnzo += n);
+                }
+
+                function currentSlideEnzo(n) {
+                    showSlidesEnzo(slideIndexEnzo = n);
+                }
+
+                function showSlidesEnzo(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("slide-container-james-enzo")[0].getElementsByTagName("img");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {
+                        slideIndexEnzo = 1
+                    }
+                    if (n < 1) {
+                        slideIndexEnzo = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndexEnzo - 1].style.display = "block";
+                    dots[slideIndexEnzo - 1].className += " active";
+                }
+            </script>
+
+            <div class="slider-james-enzogt">
+                <div class="slide-container-james-enzogt">
+                    <img src="img/homework/james/enzogt01.jpg" />
+                    <img src="img/homework/james/enzogt02.jpg" />
+                    <img src="img/homework/james/enzogt03.jpg" />
+                    <img src="img/homework/james/enzogt04.jpg" />
+                </div>
+                <div class="prev-james-enzogt" onclick="plusSlidesEnzogt(-1)">&#10094;</div>
+                <div class="next-james-enzogt" onclick="plusSlidesEnzogt(1)">&#10095;</div>
+            </div>
+            <script>
+                let slideIndexEnzogt = 1;
+                showSlidesEnzogt(slideIndexEnzogt);
+
+                function plusSlidesEnzogt(n) {
+                    showSlidesEnzogt(slideIndexEnzogt += n);
+                }
+
+                function currentSlideEnzogt(n) {
+                    showSlidesEnzogt(slideIndexEnzogt = n);
+                }
+
+                function showSlidesEnzogt(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("slide-container-james-enzogt")[0].getElementsByTagName("img");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {
+                        slideIndexEnzogt = 1
+                    }
+                    if (n < 1) {
+                        slideIndexEnzogt = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndexEnzogt - 1].style.display = "block";
+                    dots[slideIndexEnzogt - 1].className += " active";
+                }
+            </script>
+
+            <div class="slider-james-enzoEVO">
+                <div class="slide-container-james-enzoEVO">
+                    <img src="img/homework/james/enzogtEVO01.jpg" />
+                    <img src="img/homework/james/enzogtEVO02.jpg" />
+                    <img src="img/homework/james/enzogtEVO03.jpg" />
+                    <img src="img/homework/james/enzogtEVO04.jpg" />
+                </div>
+                <div class="prev-james-enzoEVO" onclick="plusSlidesEnzoEVO(-1)">&#10094;</div>
+                <div class="next-james-enzoEVO" onclick="plusSlidesEnzoEVO(1)">&#10095;</div>
+            </div>
+            <script>
+                let slideIndexEnzoEVO = 1;
+                showSlidesEnzoEVO(slideIndexEnzoEVO);
+
+                function plusSlidesEnzoEVO(n) {
+                    showSlidesEnzoEVO(slideIndexEnzoEVO += n);
+                }
+
+                function currentSlideEnzoEVO(n) {
+                    showSlidesEnzoEVO(slideIndexEnzoEVO = n);
+                }
+
+                function showSlidesEnzoEVO(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("slide-container-james-enzoEVO")[0].getElementsByTagName("img");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {
+                        slideIndexEnzoEVO = 1
+                    }
+                    if (n < 1) {
+                        slideIndexEnzoEVO = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndexEnzoEVO - 1].style.display = "block";
+                    dots[slideIndexEnzoEVO - 1].className += " active";
+                }
+            </script>
+        </div>
+
+        <p>- Silver collection -</p>
+        <div class="mick">
+            <a id="link-mick"></a>
+            <div class="slider-mick-c292">
+                <div class="slide-container-mick-c292">
+                    <img src="img/homework/mick/C292_01.jpg" />
+                    <img src="img/homework/mick/C292_02.jpg" />
+                    <img src="img/homework/mick/C292_03.jpg" />
+                    <img src="img/homework/mick/C292_04.jpg" />
+                </div>
+                <div class="prev-mick-c292" onclick="plusSlidesC292(-1)">&#10094;</div>
+                <div class="next-mick-c292" onclick="plusSlidesC292(1)">&#10095;</div>
+            </div>
+            <script>
+                let slideIndexC292 = 1;
+                showSlidesC292(slideIndexC292);
+
+                function plusSlidesC292(n) {
+                    showSlidesC292(slideIndexC292 += n);
+                }
+
+                function currentSlideC292(n) {
+                    showSlidesC292(slideIndexC292 = n);
+                }
+
+                function showSlidesC292(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("slide-container-mick-c292")[0].getElementsByTagName("img");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {
+                        slideIndexC292 = 1
+                    }
+                    if (n < 1) {
+                        slideIndexC292 = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndexC292 - 1].style.display = "block";
+                    dots[slideIndexC292 - 1].className += " active";
+                }
+            </script>
+
+            <div class="slider-mick-m3">
+                <div class="slide-container-mick-m3">
+                    <img src="img/homework/mick/m3_01.jpg" />
+                    <img src="img/homework/mick/m3_02.jpg" />
+                    <img src="img/homework/mick/m3_03.jpg" />
+                    <img src="img/homework/mick/m3_04.jpg" />
+                </div>
+                <div class="prev-mick-m3" onclick="plusSlidesM3(-1)">&#10094;</div>
+                <div class="next-mick-m3" onclick="plusSlidesM3(1)">&#10095;</div>
+            </div>
+            <script>
+                let slideIndexM3 = 1;
+                showSlidesM3(slideIndexM3);
+
+                function plusSlidesM3(n) {
+                    showSlidesM3(slideIndexM3 += n);
+                }
+
+                function currentSlideM3(n) {
+                    showSlidesM3(slideIndexM3 = n);
+                }
+
+                function showSlidesM3(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("slide-container-mick-m3")[0].getElementsByTagName("img");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {
+                        slideIndexM3 = 1
+                    }
+                    if (n < 1) {
+                        slideIndexM3 = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndexM3 - 1].style.display = "block";
+                    dots[slideIndexM3 - 1].className += " active";
+                }
+            </script>
+
+            <div class="slider-mick-m3-dtm">
+                <div class="slide-container-mick-m3-dtm">
+                    <img src="img/homework/mick/m3_dtm_01.jpg" />
+                    <img src="img/homework/mick/m3_dtm_02.jpg" />
+                    <img src="img/homework/mick/m3_dtm_03.jpg" />
+                    <img src="img/homework/mick/m3_dtm_04.jpg" />
+                </div>
+                <div class="prev-mick-m3-dtm" onclick="plusSlidesM3DTM(-1)">&#10094;</div>
+                <div class="next-mick-m3-dtm" onclick="plusSlidesM3DTM(1)">&#10095;</div>
+            </div>
+            <script>
+                let slideIndexM3DTM = 1;
+                showSlidesM3DTM(slideIndexM3DTM);
+
+                function plusSlidesM3DTM(n) {
+                    showSlidesM3DTM(slideIndexM3DTM += n);
+                }
+
+                function currentSlideM3DTM(n) {
+                    showSlidesM3DTM(slideIndexM3DTM = n);
+                }
+
+                function showSlidesM3DTM(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("slide-container-mick-m3-dtm")[0].getElementsByTagName("img");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {
+                        slideIndexM3DTM = 1
+                    }
+                    if (n < 1) {
+                        slideIndexM3DTM = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndexM3DTM - 1].style.display = "block";
+                    dots[slideIndexM3DTM - 1].className += " active";
+                }
+            </script>
+        </div>
+
+        <p>- Blue collection -</p>
+        <div class="jiro">
+            <a id="link-jiro"></a>
+            <div class="slider-jiro-normal" onclick="location.href='360view.html';">
+                <div class="slide-container-jiro-normal">
+                    <img src="img/homework/jiro/normal_01.jpg" />
+                    <img src="img/homework/jiro/normal_02.jpg" />
+                    <img src="img/homework/jiro/normal_03.jpg" />
+                    <img src="img/homework/jiro/normal_04.jpg" />
+                </div>
+                <div class="prev-jiro-normal" onclick="plusSlidesNormal(-1)">&#10094;</div>
+                <div class="next-jiro-normal" onclick="plusSlidesNormal(1)">&#10095;</div>
+            </div>
+            <script>
+                let slideIndexNormal = 1;
+                showSlidesNormal(slideIndexNormal);
+
+                function plusSlidesNormal(n) {
+                    showSlidesNormal(slideIndexNormal += n);
+                }
+
+                function currentSlideNormal(n) {
+                    showSlidesNormal(slideIndexNormal = n);
+                }
+
+                function showSlidesNormal(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("slide-container-jiro-normal")[0].getElementsByTagName("img");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {
+                        slideIndexNormal = 1
+                    }
+                    if (n < 1) {
+                        slideIndexNormal = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndexNormal - 1].style.display = "block";
+                    dots[slideIndexNormal - 1].className += " active";
+                }
+            </script>
+
+            <div class="slider-jiro-No98">
+                <div class="slide-container-jiro-No98">
+                    <img src="img/homework/jiro/No98_01.jpg" />
+                    <img src="img/homework/jiro/No98_02.jpg" />
+                    <img src="img/homework/jiro/No98_03.jpg" />
+                    <img src="img/homework/jiro/No98_04.jpg" />
+                </div>
+                <div class="prev-jiro-No98" onclick="plusSlidesNo98(-1)">&#10094;</div>
+                <div class="next-jiro-No98" onclick="plusSlidesNo98(1)">&#10095;</div>
+            </div>
+            <script>
+                let slideIndexNo98 = 1;
+                showSlidesNo98(slideIndexNo98);
+
+                function plusSlidesNo98(n) {
+                    showSlidesNo98(slideIndexNo98 += n);
+                }
+
+                function currentSlideNo98(n) {
+                    showSlidesNo98(slideIndexNo98 = n);
+                }
+
+                function showSlidesNo98(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("slide-container-jiro-No98")[0].getElementsByTagName("img");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {
+                        slideIndexNo98 = 1
+                    }
+                    if (n < 1) {
+                        slideIndexNo98 = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndexNo98 - 1].style.display = "block";
+                    dots[slideIndexNo98 - 1].className += " active";
+                }
+            </script>
+
+            <div class="slider-jiro-15THmodel">
+                <div class="slide-container-jiro-15THmodel">
+                    <img src="img/homework/jiro/15THmodel_01.jpg" />
+                    <img src="img/homework/jiro/15THmodel_02.jpg" />
+                    <img src="img/homework/jiro/15THmodel_03.jpg" />
+                    <img src="img/homework/jiro/15THmodel_04.jpg" />
+                </div>
+                <div class="prev-jiro-15THmodel" onclick="plusSlides15THmodel(-1)">&#10094;</div>
+                <div class="next-jiro-15THmodel" onclick="plusSlides15THmodel(1)">&#10095;</div>
+            </div>
+            <script>
+                let slideIndex15THmodel = 1;
+                showSlides15THmodel(slideIndex15THmodel);
+
+                function plusSlides15THmodel(n) {
+                    showSlides15THmodel(slideIndex15THmodel += n);
+                }
+
+                function currentSlide15THmodel(n) {
+                    showSlides15THmodel(slideIndex15THmodel = n);
+                }
+
+                function showSlides15THmodel(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("slide-container-jiro-15THmodel")[0].getElementsByTagName("img");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {
+                        slideIndex15THmodel = 1
+                    }
+                    if (n < 1) {
+                        slideIndex15THmodel = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndex15THmodel - 1].style.display = "block";
+                    dots[slideIndex15THmodel - 1].className += " active";
+                }
+            </script>
+        </div>
+
+        <p>- Other collection -</p>
+        <div class="brian">
+            <a id="link-brian"></a>
+            <div class="slider-brian-c5r">
+                <div class="slide-container-brian-c5r">
+                    <img src="img/homework/brian/c5r_01.jpg" />
+                    <img src="img/homework/brian/c5r_02.jpg" />
+                    <img src="img/homework/brian/c5r_03.jpg" />
+                    <img src="img/homework/brian/c5r_04.jpg" />
+                </div>
+                <div class="prev-brian-c5r" onclick="plusSlidesC5r(-1)">&#10094;</div>
+                <div class="next-brian-c5r" onclick="plusSlidesC5r(1)">&#10095;</div>
+            </div>
+            <script>
+                let slideIndexC5r = 1;
+                showSlidesC5r(slideIndexC5r);
+
+                function plusSlidesC5r(n) {
+                    showSlidesC5r(slideIndexC5r += n);
+                }
+
+                function currentSlideC5r(n) {
+                    showSlidesC5r(slideIndexC5r = n);
+                }
+
+                function showSlidesC5r(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("slide-container-brian-c5r")[0].getElementsByTagName("img");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {
+                        slideIndexC5r = 1
+                    }
+                    if (n < 1) {
+                        slideIndexC5r = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndexC5r - 1].style.display = "block";
+                    dots[slideIndexC5r - 1].className += " active";
+                }
+            </script>
+
+            <div class="slider-brian-911">
+                <div class="slide-container-brian-911">
+                    <img src="img/homework/brian/911_01.jpg" />
+                    <img src="img/homework/brian/911_02.jpg" />
+                    <img src="img/homework/brian/911_03.jpg" />
+                    <img src="img/homework/brian/911_04.jpg" />
+                </div>
+                <div class="prev-brian-911" onclick="plusSlides911(-1)">&#10094;</div>
+                <div class="next-brian-911" onclick="plusSlides911(1)">&#10095;</div>
+            </div>
+            <script>
+                let slideIndex911 = 1;
+                showSlides911(slideIndex911);
+
+                function plusSlides911(n) {
+                    showSlides911(slideIndex911 += n);
+                }
+
+                function currentSlide911(n) {
+                    showSlides911(slideIndex911 = n);
+                }
+
+                function showSlides911(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("slide-container-brian-911")[0].getElementsByTagName("img");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {
+                        slideIndex911 = 1
+                    }
+                    if (n < 1) {
+                        slideIndex911 = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndex911 - 1].style.display = "block";
+                    dots[slideIndex911 - 1].className += " active";
+                }
+            </script>
+
+            <div class="slider-brian-r8">
+                <div class="slide-container-brian-r8">
+                    <img src="img/homework/brian/r8_01.jpg" />
+                    <img src="img/homework/brian/r8_02.jpg" />
+                    <img src="img/homework/brian/r8_03.jpg" />
+                    <img src="img/homework/brian/r8_04.jpg" />
+                </div>
+                <div class="prev-brian-r8" onclick="plusSlidesR8(-1)">&#10094;</div>
+                <div class="next-brian-r8" onclick="plusSlidesR8(1)">&#10095;</div>
+            </div>
+            <script>
+                let slideIndexR8 = 1;
+                showSlidesR8(slideIndexR8);
+
+                function plusSlidesR8(n) {
+                    showSlidesR8(slideIndexR8 += n);
+                }
+
+                function currentSlideR8(n) {
+                    showSlidesR8(slideIndexR8 = n);
+                }
+
+                function showSlidesR8(n) {
+                    let i;
+                    let slides = document.getElementsByClassName("slide-container-brian-r8")[0].getElementsByTagName("img");
+                    let dots = document.getElementsByClassName("dot");
+                    if (n > slides.length) {
+                        slideIndexR8 = 1
+                    }
+                    if (n < 1) {
+                        slideIndexR8 = slides.length
+                    }
+                    for (i = 0; i < slides.length; i++) {
+                        slides[i].style.display = "none";
+                    }
+                    for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" active", "");
+                    }
+                    slides[slideIndexR8 - 1].style.display = "block";
+                    dots[slideIndexR8 - 1].className += " active";
+                }
+            </script>
+        </div>
+    </body>
+
+    <footer>
+        <nav class="wrapper-footer">
+            <ul class="menu-footer">
+                <li><a href="#">初めての方へ</a></li>
+                <li><a href="#">よくある質問</a></li>
+                <li><a href="#">利用規約</a></li>
+                <li><a href="#">特定商品取引法</a></li>
+                <li><a href="#">プライバシーポリシー</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+                <li><a href="#">会社概要</a></li>
+            </ul>
+        </nav>
+        <h5 class="copy-rights">©️2023 Cloud Garage Co,.Ltd. All Rights Reserved</h5>
+    </footer>
+
+
+</html>

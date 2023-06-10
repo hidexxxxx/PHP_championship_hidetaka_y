@@ -1,0 +1,100 @@
+.modalEditFile {
+    position: absolute;
+    font-size: 25px;
+    margin-top: 1.2%;
+    transition-duration: 0.5s;
+}
+
+.openModal:hover {
+    background-color: #4b4b4b;
+    text-decoration: underline;
+    text-decoration-thickness: 3.5px;
+    text-decoration-color: rgb(180, 125, 0);
+    cursor: pointer;
+}
+
+.modalEditArea {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 400px;
+    width: 1000px;
+    height: 800px;
+}
+
+.fieldset-edit-modal {
+    color: black;
+    font: bolder;
+    font-size: larger;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 3px solid rgb(84, 84, 84);
+}
+
+.modalEdit {
+    display: none;
+    width: 1000px;
+    height: 600px;
+}
+
+.modalWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 500px;
+}
+
+.item,
+.explanation,
+.price {
+    font-size: 15px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.item {
+    width: 70vh;
+    font-size: 17.5px;
+}
+
+.explanation {
+    width: 150vh;
+    font-size: 17.5px;
+}
+
+.price {
+    width: 70vh;
+    font-size: 17.5px;
+}
+
+.submit-button-box {
+    display: flex;
+    justify-content: center;
+}
+
+.resister-button {
+    font-size: 25px;
+    font: bolder;
+    color: white;
+    background-color: #817f7f;
+    border-color: black;
+    padding: 5px 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.resister-button:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+.close {
+    z-index: 10000;
+    position: fixed;
+    color: red;
+    font-size: 100px;
+    background-color: aliceblue;
+}

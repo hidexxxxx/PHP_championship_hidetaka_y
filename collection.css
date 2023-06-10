@@ -1,0 +1,403 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    position: relative;
+    font-family: Georgia;
+    background-color: rgb(35, 35, 35);
+    color: whitesmoke;
+    max-width: 950px;
+    height: auto;
+}
+
+a:link,
+a:visited {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+#header {
+    /* max-width: 1000px; */
+    margin: 0 auto 0px auto;
+    border-bottom: solid 1px #909090;
+}
+
+.brand-logo {
+    border: 0.5px solid #909090;
+    width: 20%;
+    height: auto;
+    transition-duration: 0.5s;
+    box-shadow: 2px 2px rgb(0, 0, 0);
+    margin-top: 15px;
+}
+
+.brand-logo:hover {
+    transform: scale(1.08, 1.08);
+    cursor: pointer;
+    border: 0.5px solid #909090;
+}
+
+.logo-box {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.hamburger-menu {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    margin-left: 8%;
+    overflow: hidden;
+}
+
+.line {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: black;
+}
+
+.line:nth-child(1) {
+    top: 0;
+}
+
+.line:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.line:nth-child(3) {
+    bottom: 0;
+}
+
+.line {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: whitesmoke;
+}
+
+.line:nth-child(1) {
+    top: 0;
+}
+
+.line:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.line:nth-child(3) {
+    bottom: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .menu {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    width: 60%;
+    margin-left: 5%;
+}
+
+nav .login {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    width: 12%;
+    margin-right: 5%;
+}
+
+.menu {
+    font-size: 20px;
+    display: flex;
+}
+
+.login {
+    display: flex;
+}
+
+nav .menu li {
+    margin-right: 3%;
+}
+
+.profiles {
+    text-align: center;
+}
+
+#profile-photo {
+    border-radius: 50%;
+    width: 15vh;
+    height: 15vh;
+    object-fit: cover;
+}
+
+#output,
+#output-profile-photo {
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#output {
+    margin-top: none;
+    margin-bottom: none;
+}
+
+.menu-collection {
+    text-decoration: underline;
+    text-decoration-thickness: 3.5px;
+    text-decoration-color: whitesmoke;
+}
+
+.menu-top,
+.menu-collection,
+.menu-archive,
+.menu-category,
+.menu-resister,
+.login-login,
+.login-contact {
+    transition-duration: 0.5s;
+}
+
+.menu-top:hover,
+.menu-collection:hover,
+.menu-archive:hover,
+.menu-category:hover,
+.menu-resister:hover,
+.login-login:hover,
+.login-contact:hover {
+    background-color: #4b4b4b;
+    text-decoration: underline;
+    text-decoration-thickness: 3.5px;
+    text-decoration-color: rgb(180, 125, 0);
+    cursor: pointer;
+}
+
+
+.ura-hoge {
+    color: black;
+    font-family: Roboto;
+    width: 960px;
+    height: 350px;
+    background-image: url("/Users/hidetakayamamoto/Desktop/Gs/03_課題/00_first_work/img/homework/porsche_museum.jpg");
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+}
+
+.ura-title {
+    padding-top: 60px;
+    font-family: Roboto;
+    font-size: 65px;
+    text-shadow: 1px 1px 1px #333;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white
+}
+
+.ura-fuga {
+    padding-top: 10px;
+    font-family: Roboto;
+    font-size: 35px;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 1px #333;
+    color: white;
+    padding-bottom: 105px;
+}
+
+.person {
+    font-size: 30px;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.james,
+.mick,
+.jiro,
+.brian {
+    display: flex;
+    justify-content: center;
+    padding-left: 30px;
+}
+
+.slider-james-enzo,
+.slider-james-enzogt,
+.slider-james-enzoEVO,
+.slider-mick-c292,
+.slider-mick-m3,
+.slider-mick-m3-dtm,
+.slider-jiro-normal,
+.slider-jiro-No98,
+.slider-jiro-15THmodel,
+.slider-brian-c5r,
+.slider-brian-911,
+.slider-brian-r8 {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.slide-container-james-enzo,
+.slide-container-james-enzogt,
+.slide-container-james-enzoEVO,
+.slide-container-mick-c292,
+.slide-container-mick-m3,
+.slide-container-mick-m3-dtm,
+.slide-container-jiro-normal,
+.slide-container-jiro-No98,
+.slide-container-jiro-15THmodel,
+.slide-container-brian-c5r,
+.slide-container-brian-911,
+.slide-container-brian-r8 {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+}
+
+.slide-container-james-enzo img,
+.slide-container-james-enzogt img,
+.slide-container-james-enzoEVO img,
+.slide-container-mick-c292 img,
+.slide-container-mick-m3 img,
+.slide-container-mick-m3-dtm img,
+.slide-container-jiro-normal img,
+.slide-container-jiro-No98 img,
+.slide-container-jiro-15THmodel img,
+.slide-container-brian-c5r img,
+.slide-container-brian-911 img,
+.slide-container-brian-r8 img {
+    flex: 0 0 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.prev-james-enzo,
+.prev-james-enzogt,
+.prev-james-enzoEVO,
+.prev-mick-c292,
+.prev-mick-m3,
+.prev-mick-m3-dtm,
+.prev-jiro-normal,
+.prev-jiro-No98,
+.prev-jiro-15THmodel,
+.prev-brian-c5r,
+.prev-brian-911,
+.prev-brian-r8,
+.next-james-enzo,
+.next-james-enzogt,
+.next-james-enzoEVO,
+.next-mick-c292,
+.next-mick-m3,
+.next-mick-m3-dtm,
+.next-jiro-normal,
+.next-jiro-No98,
+.next-jiro-15THmodel,
+.next-brian-c5r,
+.next-brian-911,
+.next-brian-r8 {
+    position: absolute;
+    top: 45%;
+    left: 84%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 50px;
+    font-size: 30px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.prev-james-enzo,
+.prev-james-enzogt,
+.prev-james-enzoEVO,
+.prev-mick-c292,
+.prev-mick-m3,
+.prev-mick-m3-dtm,
+.prev-jiro-normal,
+.prev-jiro-No98,
+.prev-jiro-15THmodel,
+.prev-brian-c5r,
+.prev-brian-911,
+.prev-brian-r8 {
+    left: 0;
+}
+
+.next-james-enzo,
+.next-james-enzogt,
+.next-james-enzoEVO,
+.next-mick-c292,
+.next-mick-m3,
+.next-mick-m3-dtm,
+.next-jiro-normal,
+.next-jiro-No98,
+.next-jiro-15THmodel,
+.next-brian-c5r,
+.next-brian-911,
+.next-brian-r8 {
+    right: 0;
+}
+
+.footer {
+    font: bold;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10%;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.wrapper-footer {
+    position: relative;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+nav {
+    width: 100%;
+}
+
+nav .menu-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+    border-top: solid 1px #909090;
+    padding-top: 20px;
+}
+
+nav .menu-footer li {
+    font-size: 12px;
+    margin-right: 14px;
+}
+
+.copy-rights {
+    color: rgb(175, 122, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+}

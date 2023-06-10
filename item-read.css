@@ -1,0 +1,357 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    position: relative;
+    font-family: Georgia;
+    background-color: rgb(35, 35, 35);
+    color: whitesmoke;
+}
+
+a:link,
+a:visited {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+#header {
+    margin: 0 auto 0px auto;
+    border-bottom: solid 1px #909090;
+}
+
+.brand-logo {
+    border: 0.5px solid #909090;
+    width: 20%;
+    height: auto;
+    transition-duration: 0.5s;
+    box-shadow: 2px 2px rgb(0, 0, 0);
+    margin-top: 15px;
+}
+
+.brand-logo:hover {
+    transform: scale(1.08, 1.08);
+    cursor: pointer;
+    border: 0.5px solid #909090;
+}
+
+.logo-box {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.hamburger-menu {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    margin-left: 8%;
+    overflow: hidden;
+}
+
+.line {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: black;
+}
+
+.line:nth-child(1) {
+    top: 0;
+}
+
+.line:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.line:nth-child(3) {
+    bottom: 0;
+}
+
+.line {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: whitesmoke;
+}
+
+.line:nth-child(1) {
+    top: 0;
+}
+
+.line:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.line:nth-child(3) {
+    bottom: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .menu {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    width: 60%;
+    margin-left: 5%;
+}
+
+nav .login {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    width: 12%;
+    margin-right: 5%;
+}
+
+.menu {
+    font-size: 20px;
+    display: flex;
+}
+
+.login {
+    display: flex;
+}
+
+nav .menu li {
+    margin-right: 3%;
+}
+
+.profiles {
+    text-align: center;
+}
+
+#profile-photo {
+    border-radius: 50%;
+    width: 15vh;
+    height: 15vh;
+    object-fit: cover;
+}
+
+#output {
+    margin-top: none;
+    margin-bottom: none;
+}
+
+.menu-collection {
+    text-decoration: underline;
+    text-decoration-thickness: 3.5px;
+    text-decoration-color: whitesmoke;
+}
+
+.menu-top,
+.menu-collection,
+.menu-archive,
+.menu-category,
+.menu-resister,
+.login-login,
+.login-contact {
+    transition-duration: 0.5s;
+}
+
+.menu-top:hover,
+.menu-collection:hover,
+.menu-archive:hover,
+.menu-category:hover,
+.menu-resister:hover,
+.login-login:hover,
+.login-contact:hover {
+    background-color: #4b4b4b;
+    text-decoration: underline;
+    text-decoration-thickness: 3.5px;
+    text-decoration-color: rgb(180, 125, 0);
+    cursor: pointer;
+}
+
+.sort-conditions {
+    float: right;
+    margin-top: 20px;
+}
+
+.resister-item,
+.sort-expensive,
+.sort-cheaper,
+.sort-new,
+.sort-old {
+    transition-duration: 0.5s;
+    margin-right: 10px;
+}
+
+.resister-item:hover,
+.sort-expensive:hover,
+.sort-cheaper:hover,
+.sort-new:hover,
+.sort-old:hover {
+    background-color: #4b4b4b;
+    text-decoration: underline;
+    text-decoration-thickness: 3.5px;
+    text-decoration-color: rgb(180, 125, 0);
+    cursor: pointer;
+}
+
+.grid {
+    width: 20vh;
+    height: 35vh;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25vh;
+}
+
+.grid>div {
+    display: grid;
+    place-items: center;
+}
+
+.each-grid {
+    border-bottom: 1px solid white;
+    /* border-right: 1px solid white; */
+}
+
+.box {
+    display: flex;
+}
+
+.photo_A {
+    width: 26.4vh;
+    height: auto;
+    border: 1px solid white;
+}
+
+.half-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.photo_B {
+    width: 13vh;
+    height: auto;
+    border: 1px solid white;
+}
+
+.photo_C {
+    width: 13vh;
+    height: auto;
+    border: 1px solid white;
+}
+
+.edit-delete-box {
+    display: flex;
+    margin-left: 65%;
+}
+
+.item-edit,
+.item-delete {
+    margin-left: 15%;
+    transition-duration: 0.5s;
+}
+
+.item-edit:hover,
+.item-delete:hover {
+    background-color: #4b4b4b;
+    text-decoration: underline;
+    text-decoration-thickness: 3.5px;
+    text-decoration-color: rgb(180, 125, 0);
+    cursor: pointer;
+}
+
+.openEditModal,
+.item-delete {
+    z-index: 100;
+}
+
+fieldset {
+    overflow: auto;
+    /*********** ▼掲載するgrid数に合わせて適宜調整▼ *************/
+    height: 2500px;
+
+}
+
+/* スクロールバー非表示 */
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.to-chat-space-button {
+    font-size: x-large;
+    position: fixed;
+    font: bolder;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    border-radius: 80%;
+    background-color: #817f7f;
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.to-chat-space-button:hover {
+    font-size: x-large;
+    position: fixed;
+    font: bolder;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    /* border-color: black; */
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
+
+.wrapper-footer {
+    position: relative;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+nav {
+    width: 100%;
+}
+
+nav .menu-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+    border-top: solid 1px #909090;
+    padding-top: 20px;
+}
+
+nav .menu-footer li {
+    font-size: 12px;
+    margin-right: 14px;
+}
+
+.copy-rights {
+    color: rgb(180, 125, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+}

@@ -1,0 +1,105 @@
+.item-edit {
+    position: absolute;
+    font-size: 25px;
+    margin-top: 1.2%;
+    transition-duration: 0.5s;
+}
+
+.openModal:hover {
+    background-color: #4b4b4b;
+    text-decoration: underline;
+    text-decoration-thickness: 3.5px;
+    text-decoration-color: rgb(180, 125, 0);
+    cursor: pointer;
+}
+
+.modalArea {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    top: 30%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 30%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.fieldset-modal {
+    color: black;
+    font: bolder;
+    font-size: larger;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 3px solid rgb(84, 84, 84);
+}
+
+.modalWrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    max-width: 500px;
+}
+
+.item-list-p {
+    font-size: 25px;
+}
+
+.item,
+.explanation,
+.price {
+    font-size: 15px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.item {
+    width: 70vh;
+    font-size: 17.5px;
+}
+
+.explanation {
+    width: 150vh;
+    font-size: 17.5px;
+}
+
+.price {
+    width: 70vh;
+    font-size: 17.5px;
+}
+
+.submit-button-box {
+    display: flex;
+    justify-content: center;
+}
+
+.resister-button {
+    font-size: 25px;
+    font: bolder;
+    color: white;
+    background-color: #817f7f;
+    border-color: black;
+    padding: 5px 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.resister-button:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+.closeModal {
+    font-size: 40px;
+    font: bolder;
+    color: black;
+    position: absolute;
+    top: 1vh;
+    right: -2vh;
+    cursor: pointer;
+}

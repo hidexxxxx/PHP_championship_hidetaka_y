@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chat.css">
+    <title>Garage CORSA</title>
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="logo-box">
+            <a href=""><img class="brand-logo" src="img/logo/brand-logo.png" alt="logo"></a>
+        </div>
+        <!-- <p class="hamburger-menu-p">Menu</p> -->
+        <div class="hamburger-menu">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <nav class="wrapper">
+            <ul class="menu">
+                <li class="menu-top"><a href="#">TOP</a></li>
+                <li class="menu-collection"><a href="collection.html">COLLECTION</a></li>
+                <li class="menu-archive"><a href="archive.html">ARCHIVE</a></li>
+                <li class="menu-category"><a href="#">CATEGORY</a></li>
+                <li class="login-login"><a href="index.html">LOGIN</a></li>
+                <li class="login-contact"><a href="contact_input.php">CONTACT</a></li>
+            </ul>
+
+            <ul class="login">
+                <div class="profiles">
+                    <!-- プロフィール画像表示 -->
+                    <div id="output-profile-photo">
+                        <img id="profile-photo" src="" alt="User Photo" onclick="location.href='resister.html';">
+                    </div>
+                    <!-- プロフィール名表示 -->
+                    <h5 id="output"></h5>
+                </div>
+            </ul>
+        </nav>
+
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- プロフィールテキストの読み込みコード -->
+        <script src="profile_textData_read.js" type="module"></script>
+
+        <!-- プロフィール画像の読み込みコード -->
+        <script src="profile_photoData_read.js" type="module"></script>
+
+    </header>
+
+    <br>
+    <p class="caution">購入希望の商品について希望価格などを決めましょう！</p>
+    <br>
+    <main>
+        <div class="container">
+            <div class="chat-area">
+                <ol>
+                    <!-- データ出力場所 -->
+                    <li id="output-chat"></li>
+                </ol>
+            </div>
+
+            <!-- チャット入力画面 -->
+            <form>
+                <fieldset>
+                    <legend>入力画面</legend>
+                    <div class="messege-area">
+                        <div class="messege-area-name">
+                            <label for="name">名前:</label>
+                            <input type="text" id="name" class="name">
+                        </div>
+                        <div class="messege-area-text">
+                            <label for="text">内容:</label>
+                            <textarea rows="4" id="text" class="text"></textarea>
+                        </div>
+                        <div class="messege-area-button">
+                            <button type="button" id="send" class="button">送信</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="review">
+                <p class="review-form" onclick="location.href='review-form.html';">⭐️レビューページへ</p>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+        <link type="text/css" rel="stylesheet"
+            href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+        <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+
+        <!-- 時間調整コード -->
+        <script src="time_adjust.js"></script>
+        <!-- firebaseを使ったチャットコード -->
+        <script type="module" src="chat-space.js"></script>
+
+
+    </main>
+</body>
+
+<footer>
+    <nav class="wrapper-footer">
+        <ul class="menu-footer">
+            <li><a href="#">初めての方へ</a></li>
+            <li><a href="#">よくある質問</a></li>
+            <li><a href="#">利用規約</a></li>
+            <li><a href="#">特定商品取引法</a></li>
+            <li><a href="#">プライバシーポリシー</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+            <li><a href="#">会社概要</a></li>
+        </ul>
+    </nav>
+    <h5 class="copy-rights">©️2023 xxx Co,.Ltd. All Rights Reserved</h5>
+</footer>
+
+</html>
