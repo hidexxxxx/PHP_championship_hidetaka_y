@@ -1,8 +1,13 @@
 <?php
 
+
 //DB接続
-include('function.php');
+include('login_function.php');
 $pdo = connect_to_db();
+
+//セッション引き継ぎ
+session_start();
+check_session_id();
 
 // ソートの方法（安い順 or 高い順）とフィールド（価格 or アップロード日時）を取得
 $sort = $_GET['sort'] ?? 'asc';
@@ -44,7 +49,7 @@ foreach ($result as $record) {
     "
     <section class='grid'>
       <div class='each-grid'>
-          <p>{$record["item"]}</p>
+          <p class='item-title'>{$record["item"]}</p>
 
           <div class='box'>
               <div>
@@ -56,8 +61,8 @@ foreach ($result as $record) {
               </div>
           </div>
 
-          <p>{$record["explanation"]}</p>
-          <p>price : ¥ {$record["price"]}</p>
+          <p class='item-explanation'>{$record["explanation"]}</p>
+          <p class='item-price'>price : ¥ {$record["price"]}</p>
           <div class='edit-delete-box'>
             <button class='openEditModal' onclick=\"openEditModal('item-edit.php?id={$record['id']}')\">▶︎E</button>
             <a href='item-delete.php?id={$record["id"]}' class='item-delete'>▶︎D</a>
@@ -143,31 +148,31 @@ foreach ($result as $record) {
           <form action="item-create.php" method="POST" enctype="multipart/form-data">
               <fieldset class="fieldset-modal">
                 <p class="item-resister-p"> - 商品登録画面 - </p>
-                <br>
+                <!-- <br> -->
                 <div>
                     <input type="text" name="item" class="item" placeholder="*商品名を入力してください">
                 </div>
-                <br>
+                <!-- <br> -->
                 <div>
-                    Photo ①: <input type="file" name="photo_A" accept=".jpg,.jpeg,.png" required>
-                    Photo ②: <input type="file" name="photo_B" accept=".jpg,.jpeg,.png" required>
-                    Photo ③: <input type="file" name="photo_C" accept=".jpg,.jpeg,.png" required>
+                    Photo ①: <input type="file" name="photo_A" class="resister_form_photo_A" accept=".jpg,.jpeg,.png" required>
+                    Photo ②: <input type="file" name="photo_B" class="resister_form_photo_B" accept=".jpg,.jpeg,.png" required>
+                    Photo ③: <input type="file" name="photo_C" class="resister_form_photo_C" accept=".jpg,.jpeg,.png" required>
                 </div>
-                <br>
+                <!-- <br> -->
                 <div>
                   <textarea rows=5 name="explanation" class="explanation" placeholder="＊商品の説明を記入してください"></textarea>
                 </div>
-                <br>
+                <!-- <br> -->
                 <div>
                   <input type="input" name="price" class="price" placeholder="＊金額を記入して下さい(例：10000円の場合「10000」と記入)">
                 </div>
-                <br>
+                <!-- <br> -->
                 <div class="submit-button-box">
                     <button type="submit" class="resister-button">▶︎登録</button>
                 </div>                
               </fieldset>
             </form>
-      <div id="closeModal" class="closeModal">
+        <div id="closeModal" class="closeModal">
           ×
         </div>
         
@@ -193,9 +198,8 @@ foreach ($result as $record) {
     <br>
     <br>
     <br>
-
    
-    <fieldset>
+    <fieldset class="fieldset-garage-sale">
 
       <legend>Garage Sale !!</legend>
     
@@ -227,9 +231,7 @@ foreach ($result as $record) {
           $("#modalEdit").css("display", "block");
           $("#modalEdit").attr("src", url);
       }
-
     </script>
-
 
   </main>
 
@@ -247,7 +249,7 @@ foreach ($result as $record) {
                 <li><a href="#">会社概要</a></li>
             </ul>
         </nav>
-        <h5 class="copy-rights">©️2023 xxx Co,.Ltd. All Rights Reserved</h5>
+        <h5 class="copy-rights">©️2023 GARAGE CORSA Co,.Ltd. All Rights Reserved</h5>
   </footer>
 
 </html>

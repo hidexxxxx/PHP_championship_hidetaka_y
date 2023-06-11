@@ -1,8 +1,6 @@
 
 //    ▼以下firestore databaseからテキストデータ引き出し
 
-
-
 import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";

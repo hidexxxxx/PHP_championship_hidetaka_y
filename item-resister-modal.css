@@ -16,7 +16,7 @@
 .modalArea {
     display: none;
     position: fixed;
-    top: 30%;
+    top: 15%;
     left: 48%;
     transform: translate(-50%, -50%);
     width: 80%;
@@ -32,6 +32,7 @@
     height: 100%;
     background-color: rgba(255, 255, 255, 0.9);
     border: 3px solid rgb(84, 84, 84);
+    z-index: 2;
 }
 
 .modalWrapper {
@@ -59,21 +60,26 @@ a.to-item-read {
     font-size: 15px;
     margin-top: 1vh;
     margin-bottom: 1vh;
+
 }
 
-.item {
+.item,
+.price {
     width: 70vh;
     font-size: 17.5px;
+    border: 1px solid rgb(80, 80, 80);
 }
 
 .explanation {
     width: 150vh;
     font-size: 17.5px;
+    border: 1px solid rgb(80, 80, 80);
 }
 
-.price {
-    width: 70vh;
-    font-size: 17.5px;
+.resister_form_photo_A,
+.resister_form_photo_B,
+.resister_form_photo_C {
+    font-size: 15px;
 }
 
 .submit-button-box {
@@ -88,8 +94,8 @@ a.to-item-read {
     background-color: #817f7f;
     border-color: black;
     padding: 5px 50px;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 10%;
+    margin-bottom: 10px;
     cursor: pointer;
     transition-duration: 0.5s;
 }
@@ -105,6 +111,6 @@ a.to-item-read {
     color: black;
     position: absolute;
     top: 1%;
-    right: 0%;
+    right: -4%;
     cursor: pointer;
 }

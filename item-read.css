@@ -221,6 +221,13 @@ nav .menu li {
 
 .box {
     display: flex;
+    z-index: -100;
+}
+
+.item-title,
+.item-explanation,
+.item-price {
+    z-index: -100;
 }
 
 .photo_A {
@@ -252,13 +259,14 @@ nav .menu li {
     margin-left: 65%;
 }
 
-.item-edit,
+/* 出力されるoutputの▶︎Eと▶︎D */
+.openEditModal,
 .item-delete {
     margin-left: 15%;
     transition-duration: 0.5s;
 }
 
-.item-edit:hover,
+.openEditModal:hover,
 .item-delete:hover {
     background-color: #4b4b4b;
     text-decoration: underline;
@@ -269,14 +277,14 @@ nav .menu li {
 
 .openEditModal,
 .item-delete {
-    z-index: 100;
+    z-index: 0;
 }
 
-fieldset {
+.fieldset-garage-sale {
     overflow: auto;
     /*********** ▼掲載するgrid数に合わせて適宜調整▼ *************/
     height: 2500px;
-
+    z-index: -1000;
 }
 
 /* スクロールバー非表示 */
@@ -311,7 +319,6 @@ fieldset {
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    /* border-color: black; */
     background-color: orange;
     color: white;
     cursor: pointer;

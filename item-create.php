@@ -1,4 +1,10 @@
 <?php
+
+//セッション引き継ぎ & DB接続
+session_start();
+include('login_function.php');
+check_session_id();
+
 // POSTデータ確認
 // var_dump($_POST);
 // exit();

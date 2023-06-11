@@ -1,10 +1,13 @@
 <?php
+
+//セッション引き継ぎ & DB接続
+session_start();
+include('login_function.php');
+check_session_id();
+
 // 入力項目のチェック
 // var_dump($_POST);
 // exit();
-
-//DB接続
-include('function.php');
 
 // DB接続
 $pdo = connect_to_db();
