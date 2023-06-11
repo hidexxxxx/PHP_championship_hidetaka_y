@@ -5,6 +5,7 @@
     transition-duration: 0.5s;
 }
 
+
 .openModal:hover {
     background-color: #4b4b4b;
     text-decoration: underline;
@@ -16,10 +17,12 @@
 .modalEditArea {
     display: none;
     position: fixed;
-    top: 100px;
-    left: 400px;
-    width: 1000px;
-    height: 800px;
+    top: 0px;
+    left: 200px;
+    width: 0px;
+    height: 0px;
+    padding-top: 230px;
+    z-index: 1;
 }
 
 .fieldset-edit-modal {
@@ -92,9 +95,12 @@
 }
 
 .close {
-    z-index: 10000;
+    z-index: 10;
     position: fixed;
-    color: red;
-    font-size: 100px;
-    background-color: aliceblue;
+    color: black;
+    font-size: 30px;
+    /* background-color: aliceblue; */
+    top: 3%;
+    right: 5%;
+    cursor: pointer;
 }

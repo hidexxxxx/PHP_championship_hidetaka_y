@@ -2,8 +2,11 @@
 
 <?php
 
-//DB接続
-include('function.php');
+//セッション引き継ぎ
+session_start();
+include('login_function.php');
+check_session_id();
+
 
 // id受け取り
 $id = $_GET['id'];
@@ -45,19 +48,19 @@ $record = $stmt->fetch(PDO::FETCH_ASSOC);
                 <div>
                   <input type="text" name="item" class="item" placeholder="*商品名を修正してください" value="<?= $record['item'] ?>">
                 </div>
-                <br>
+                <!-- <br> -->
                 <div>
                   <textarea rows=5 name="explanation" class="explanation" placeholder="＊商品の説明を記入してください"><?= $record['explanation']?></textarea>
                 </div>
-                <br>
+                <!-- <br> -->
                 <div>
                   <input type="input" name="price" class="price" placeholder="＊金額を記入して下さい(例：10000円の場合「10000」と記入)" value="<?= $record['price']?>">
                 </div>
-                <br>
+                <!-- <br> -->
                 <div>
                   <input type="hidden" name="id" value="<?= $record['id'] ?>">
                 </div>
-                <br>
+                <!-- <br> -->
                 <span id="close" class="close">
                   &times;
                 </span>

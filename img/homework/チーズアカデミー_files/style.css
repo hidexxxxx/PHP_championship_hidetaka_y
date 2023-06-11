@@ -1,0 +1,457 @@
+/*全体　共通
+最初から設定してあるので特に変更
+しなくても大丈夫です♪
+-----------------*/
+body {
+	font-family: Roboto, "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+	line-height: 1.75;
+	font-size: 16px;
+	width: 960px;
+}
+
+
+/*　パディングをサイズ内側にする処理　*/
+* {
+	padding: 0;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/*ーーーーーーーーーーー*/
+/*この下から記述*/
+/*ーーーーーーーーーーー*/
+
+.hoge {
+	height: 400px;
+	background: url("Users/hidetakayamamoto/Desktop/Gs/03_課題/00_first_work/img/mainbg.png");
+	background-position: center;
+}
+
+.title {
+	font-size: 48px;
+	font-family: cursive;
+	color: rgb(255, 255, 255);
+	text-align: center;
+	padding-top: 30px;
+	text-decoration: underline;
+	text-decoration-color: rgb(205, 71, 56);
+	text-shadow: 2px 2px 20px #333;
+	padding-top: 100px;
+}
+
+.fuga {
+	font-size: 36px;
+	font-family: serif;
+	color: white;
+	text-align: center;
+	padding-top: 10px;
+	text-decoration: underline;
+	text-decoration-color: rgb(205, 71, 56);
+	text-shadow: 2px 2px 20px #333;
+	padding-bottom: 100px;
+}
+
+.menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid lightgray;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.header-logo {
+	width: 330px;
+	height: 50px;
+	padding-left: 100px;
+}
+
+.small-menu {
+	width: 50%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.about {
+	color: orange;
+	padding-top: 120px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.about-accademy {
+	font-size: larger;
+	padding-top: 24px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+.explanation-accademy {
+	text-align: center;
+}
+
+.slider {
+	position: relative;
+	width: 100%;
+	height: 500px;
+}
+
+.slide-container {
+	display: flex;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.slide-container img {
+	flex: 0 0 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.prev,
+.next {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 50px;
+	height: 50px;
+	font-size: 30px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+}
+
+.prev {
+	left: 0;
+}
+
+.next {
+	right: 0;
+}
+
+
+
+.course {
+	color: orange;
+	font-size: larger;
+	padding-top: 64px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.explanation-course {
+	text-align: center;
+}
+
+.farm {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #f5f5f5;
+
+}
+
+.farm-photo {
+	width: 50%;
+
+}
+
+.farm-text {
+	width: 50%;
+	padding-left: 48px;
+	padding-right: 48px;
+
+}
+
+.knowledge {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #f5f5f5;
+
+}
+
+.knowledge-photo {
+	width: 50%;
+
+}
+
+.knowledge-text {
+	width: 50%;
+	padding-left: 48px;
+	padding-right: 48px;
+
+}
+
+.tasting {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #f5f5f5;
+
+}
+
+.tasting-photo {
+	width: 50%;
+
+}
+
+.tasting-text {
+	width: 50%;
+	padding-left: 48px;
+	padding-right: 48px;
+
+}
+
+.news {
+	color: orange;
+	padding-top: 64px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.news-kana {
+	padding-bottom: 64px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.news-photo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 32px;
+}
+
+.news-text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 32px;
+	padding-left: 25px;
+}
+
+.button {
+	background-color: orange;
+	color: white;
+	width: 200px;
+	height: 50px;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.access-color {
+	background-color: #f5f5f5;
+	padding-bottom: 20px;
+}
+
+.access {
+	color: orange;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.company-info {
+	color: black;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.access-info {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 48px;
+}
+
+.contact {
+	color: orange;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.contact-text {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+form {
+	margin: 0 auto;
+	max-width: 600px;
+}
+
+label {
+	display: inline-block;
+	font-size: 16px;
+	vertical-align: middle;
+	margin-right: 120px;
+}
+
+input[type="text"],
+input[type="email"] {
+	width: 328px;
+	height: 36px;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid #BFBFBF;
+	box-sizing: border-box;
+}
+
+
+
+
+input[type="radio"] {
+	margin: 0 40px 0 0;
+}
+
+textarea {
+	width: 328px;
+	height: 108px;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid #BFBFBF;
+	box-sizing: border-box;
+	resize: vertical;
+}
+
+.form,
+.form-select,
+.form-detail {
+	display: flex;
+	align-items: center;
+	padding-top: 5px;
+}
+
+.form {
+	margin-bottom: 24px;
+}
+
+.form-container {
+	display: flex;
+}
+
+.form label {
+	flex-shrink: 0;
+	width: 120px;
+}
+
+.form-reason {
+	display: flex;
+	align-items: center;
+}
+
+.form-reason p {
+	flex-shrink: 0;
+	width: 120px;
+	margin-right: 120px;
+	align-self: flex-start;
+}
+
+.form-reason .reason-options {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+.form-reason .reason-option {
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+}
+
+.reason-options {
+	margin-top: none;
+}
+
+.reason-option {
+	margin-bottom: 24px;
+}
+
+.reason-option label {
+	flex-shrink: 0;
+}
+
+.form-textarea {
+	display: flex;
+	align-items: flex-start;
+	margin-top: 8px;
+	margin-bottom: 40px;
+}
+
+.form-textarea label {
+	flex-shrink: 0;
+	width: 120px;
+}
+
+.top {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	cursor: pointer;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: orange;
+	color: white;
+}
+
+.button-jump {
+	cursor: pointer;
+	width: 300px;
+	height: 65px;
+	background-color: orange;
+	color: white;
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+}
+
+
+
+/*どの部分のcssに対して
+命令をしているのかコメントを
+記載しよう！
+---------------------*/
+
+
+/*
+---------------------*/
+
+
+
+/*
+---------------------*/
+
+
+
+/*
+---------------------*/
+
+
+
+/*
+---------------------*/

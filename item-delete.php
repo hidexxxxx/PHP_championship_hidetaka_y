@@ -2,13 +2,18 @@
 
 <?php
 
+//セッション引き継ぎ & DB接続
+session_start();
+include('login_function.php');
+check_session_id();
+
 //idデータ受け取り ▶︎ DBに接続 ▶︎ DBで処理を実行 ▶︎ データを引っ張ってくる
 
 //idデータの受け取り
 $id = $_GET['id'];
 
 // DB接続
-include('function.php');
+// include('function.php');
 $pdo = connect_to_db();
 
 // SQL実行  

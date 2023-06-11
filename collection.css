@@ -6,8 +6,6 @@ body {
     font-family: Georgia;
     background-color: rgb(35, 35, 35);
     color: whitesmoke;
-    max-width: 950px;
-    height: auto;
 }
 
 a:link,
@@ -17,7 +15,6 @@ a:visited {
 }
 
 #header {
-    /* max-width: 1000px; */
     margin: 0 auto 0px auto;
     border-bottom: solid 1px #909090;
 }
@@ -214,6 +211,22 @@ nav .menu li {
     padding-bottom: 105px;
 }
 
+.to-garage-sale-link {
+    font-size: 25px;
+    font: bolder;
+    color: white;
+    background-color: #817f7f;
+    border-color: black;
+    padding: 8px 50px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.to-garage-sale-link:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
 .person {
     font-size: 30px;
     color: white;
@@ -230,6 +243,7 @@ nav .menu li {
     display: flex;
     justify-content: center;
     padding-left: 30px;
+    border-bottom: 0.5px solid white;
 }
 
 .slider-james-enzo,
@@ -281,7 +295,7 @@ nav .menu li {
 .slide-container-brian-c5r img,
 .slide-container-brian-911 img,
 .slide-container-brian-r8 img {
-    flex: 0 0 100%;
+    flex: 0 0 80%;
     height: 100%;
     object-fit: cover;
 }
@@ -312,7 +326,7 @@ nav .menu li {
 .next-brian-r8 {
     position: absolute;
     top: 45%;
-    left: 84%;
+    left: 69%;
     transform: translateY(-50%);
     width: 20px;
     height: 50px;
@@ -365,6 +379,7 @@ nav .menu li {
 
 .wrapper-footer {
     position: relative;
+    margin-top: 100px;
     padding-bottom: 30px;
     display: flex;
     justify-content: center;

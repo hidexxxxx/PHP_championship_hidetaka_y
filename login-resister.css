@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    position: relative;
+    font-family: Georgia;
+    background-color: rgb(35, 35, 35);
+    color: whitesmoke;
+}
+
+a:link,
+a:visited {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+#header {
+    /* max-width: 1000px; */
+    margin: 0 auto 0px auto;
+    border-bottom: solid 1px #909090;
+}
+
+.brand-logo {
+    border: 0.5px solid #909090;
+    width: 20%;
+    height: auto;
+    transition-duration: 0.5s;
+    box-shadow: 2px 2px rgb(0, 0, 0);
+    margin-top: 15px;
+    margin-bottom: 3%;
+}
+
+.brand-logo:hover {
+    transform: scale(1.08, 1.08);
+    cursor: pointer;
+    border: 0.5px solid #909090;
+}
+
+.logo-box {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+legend {
+    font-size: 30px;
+    font: bolder;
+    /* color: #000000; */
+    background-color: #454545;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    margin-left: 4%;
+    margin-right: 4%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.username,
+.password {
+    font-size: 20px;
+    width: 60%;
+    margin-bottom: 3%;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+
+.control-button {
+    font-size: 20px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /* text-align: center; */
+    padding-top: 5%;
+    padding-bottom: 8%;
+    margin-left: 4%;
+    column-gap: 3%;
+}
+
+.resister-button {
+    font-size: 25px;
+    font: bolder;
+    color: white;
+    background-color: #817f7f;
+    border-color: black;
+    padding: 8px 50px;
+    margin-top: 10%;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.resister-button:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+.to-login {
+    justify-content: flex-start;
+    font-size: 18px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.to-login:hover {
+    background-color: #4b4b4b;
+    text-decoration: underline;
+    text-decoration-thickness: 3.5px;
+    text-decoration-color: rgb(180, 125, 0);
+    cursor: pointer;
+}
+
+footer {
+    margin-bottom: 5%;
+}
+
+.wrapper-footer {
+    position: relative;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+nav {
+    width: 100%;
+}
+
+nav .menu-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+    border-top: solid 1px #909090;
+    padding-top: 20px;
+}
+
+nav .menu-footer li {
+    font-size: 12px;
+    margin-right: 14px;
+}
+
+.copy-rights {
+    color: rgb(175, 122, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+}
