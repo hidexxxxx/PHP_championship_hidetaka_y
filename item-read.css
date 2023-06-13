@@ -259,21 +259,6 @@ nav .menu li {
     margin-left: 65%;
 }
 
-/* .star {
-    width: 70px;
-    height: 50px;
-    background: url(https://nelog.jp/wp-content/uploads/2016/03/star_animation.png) no-repeat;
-    background-position: 0 0;
-    cursor: pointer;
-}
-
-.star:hover {
-    background-position: -3519px 0;
-    -webkit-transition: background 1s steps(55);
-    transition: background 1s steps(55);
-} */
-
-
 /* 出力されるoutputの▶︎Eと▶︎D */
 .openEditModal,
 .item-delete {
@@ -306,6 +291,30 @@ nav .menu li {
 ::-webkit-scrollbar {
     width: 0;
     height: 0;
+}
+
+.buttonLike {
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+    font-size: 1.5em;
+    width: auto;
+}
+
+/* .button2 {
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+    font-size: 1em;
+    width: auto;
+} */
+
+.no-like {
+    background-color: white;
+    color: black;
+    border-radius: 3px;
+    font-size: 1em;
+    width: auto;
 }
 
 .to-chat-space-button {

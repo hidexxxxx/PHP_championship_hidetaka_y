@@ -9,6 +9,8 @@ check_session_id();
 
 //データベースから返ってきたデータ
 $user_id = $_SESSION['user_id'];
+// var_dump($user_id);
+// exit();
 // $todo_id = $_SESSION['todo_id'];
 
 //DB接続
@@ -22,7 +24,8 @@ $field = $_GET['field'] ?? 'price';
 // SQL作成&実行.まずはmyadminのsqlタブから動作確認した後にここに記載する
 $sql = 'SELECT * FROM items_table LEFT OUTER JOIN ( SELECT todo_id, COUNT(id) AS like_count FROM like_table GROUP BY todo_id ) AS result_table ON items_table.id = result_table.todo_id ORDER BY ';
 
-// $sql = 'SELECT * FROM items_table LEFT OUTER JOIN ( SELECT todo_id, COUNT(id) AS like_count FROM like_table GROUP BY todo_id ) AS result_table ON items_table.id = result_table.todo_id WHERE user_id = :user_id ORDER BY ';
+//likeをしたユーザidのtodo_idをlike_tableから選別する
+$sql_like = 'SELECT todo_id FROM like_table WHERE user_id = user_id'; 
 
 // ソート対象のフィールドによってSQL文を変更
 if ($field == 'price') {
@@ -40,6 +43,8 @@ if ($sort == 'asc') {
 
 
 $stmt = $pdo->prepare($sql);
+$stmt_like = $pdo->prepare($sql_like);
+// $stmt_like->bindValue(':user_id', $user_id, PDO::PARAM_STR);
 // $stmt->bindValue(':todo_id', $todo_id, PDO::PARAM_STR);
 // $stmt->bindValue(':user_id', $user_id, PDO::PARAM_STR);
 
@@ -50,10 +55,31 @@ try {
   exit();
 }
 
+try {
+  $status = $stmt_like->execute();
+} catch (PDOException $e) {
+  echo json_encode(["sql_like error" => "{$e->getMessage()}"]);
+  exit();
+}
+
 //fetchAll(PDO::FETCH_ASSOC);結果セットの全ての行を取得し連想配列の形式で返す
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$result_like = $stmt_like->fetchAll(PDO::FETCH_ASSOC);
+
+// echo "<pre>";
+// var_dump($result_like);
+// echo "</pre>";
+// exit();
+
+
 //fetchColumn();結果セットの次の行の指定されたカラムの値のみを取得
-$like_count = $stmt->fetchColumn();
+// $like_count = $stmt->fetchColumn();
+// var_dump($like_count);
+// exit();
+
+
+// $like_count = $record["like_count"];
+// var_dump($like_count);
 
 // 結果表示実行
 $output = "";
@@ -62,7 +88,7 @@ foreach ($result as $record) {
   $output .= 
     "
     <section class='grid'>
-      <div class='each-grid'>
+      <div class='each-grid' id=\"{$record['id']}\" value=\"{$record['id']}\">
           <p class='item-title'>{$record["item"]}</p>
 
           <div class='box'>
@@ -77,19 +103,12 @@ foreach ($result as $record) {
           <p class='item-explanation'>{$record["explanation"]}</p>
           <p class='item-price'>price : ¥ {$record["price"]}</p>
 
-
-         
+          
 
           <div>
-            <?php if ($like_count !== 0) : ?>
-               <a href='item-like_create.php?user_id={$user_id}&todo_id={$record["id"]}'>&#9829; {$record["like_count"]}</a>
-            <?php else : ?>
-               <a href='item-like_create.php?user_id={$user_id}&todo_id={$record["id"]}'>&#9825; {$record["like_count"]}</a>
-            <?php endif; ?>
+              <button class='no-like' onclick=\"location.href='item-like_create.php?user_id={$user_id}&todo_id={$record["id"]}';\">&#9825; {$record["like_count"]}</button>
           </div>
 
-
-          
           <div class='edit-delete-box'>
             <button class='openEditModal' onclick=\"openEditModal('item-edit.php?id={$record['id']}')\">▶︎E</button>
             <a href='item-delete.php?id={$record["id"]}' class='item-delete'>▶︎D</a>
@@ -99,6 +118,15 @@ foreach ($result as $record) {
     
     ";   
 }
+
+// $output_like = "";
+// foreach ($result_like as $record_like) {
+  //like{$record["like_count"]}でlikeの後にlike数を出力させる"like_count"は連想配列のキー
+//   $output_like .= 
+//     "
+//     ";   
+// }
+
 
 ?>
 
@@ -136,7 +164,7 @@ foreach ($result as $record) {
                 <li class="menu-collection"><a href="collection.html">COLLECTION</a></li>
                 <li class="menu-archive"><a href="archive.html">ARCHIVE</a></li>
                 <li class="menu-category"><a href="#">CATEGORY</a></li>
-                <li class="login-login"><a href="index.html">LOGIN</a></li>
+                <li class="login-login"><a href="login.php">LOGIN</a></li>
                 <li class="login-contact"><a href="contact_input.php">CONTACT</a></li>
             </ul>
 
@@ -240,6 +268,8 @@ foreach ($result as $record) {
           <!-- phpでタグ作って結果を表示させる書き方↓-->
           <?php echo $output ?>
 
+          
+
         </section>
       <!-- </div> -->
 
@@ -254,10 +284,35 @@ foreach ($result as $record) {
     <script src="item-input-modal.js"></script>
 
     <script>
-        function openEditModal(url) {
+      function openEditModal(url) {
           $("#modalEdit").css("display", "block");
           $("#modalEdit").attr("src", url);
-      }
+      };
+
+
+
+
+      const result_id = <?php echo json_encode($result_like); ?>;
+      
+      const value = $('.each-grid').attr('value');
+      // console.log(value);
+      // console.log(result_id[0].todo_id);
+      for (let result_id2 of result_id) {
+        // console.log(result_id2.todo_id);
+        const box_id = result_id2.todo_id;
+        //button1が見つかった時にはno-likeクラスを削除し代わりにbutton2クラスを追加
+        console.log($("#" + box_id).find("button.no-like"));
+        const findbtn = $("#" + box_id).find("button.no-like");
+        console.log(findbtn);
+        
+      
+      // ボタンがクリックされた場合の処理
+      $(findbtn).removeClass("no-like").addClass("buttonLike");
+      };
+
+      
+      
+
     </script>
 
   </main>
