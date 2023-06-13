@@ -49,6 +49,7 @@ if (!$user) {
   //ログイン情報が正しかった時,空にして,id情報は以下に必ず入れておく
 } else {
   $_SESSION = array();
+  $_SESSION['user_id'] = $user['id'];
   $_SESSION['session_id'] = session_id();
   $_SESSION['is_admin'] = $user['is_admin'];
   $_SESSION['username'] = $user['username'];
