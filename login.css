@@ -103,7 +103,8 @@ legend {
 
 .to-resister {
     justify-content: flex-start;
-    font-size: 18px;
+    font-size: 20px;
+    /* margin-left: 15em; */
     cursor: pointer;
     transition-duration: 0.5s;
 }
@@ -113,6 +114,21 @@ legend {
     text-decoration: underline;
     text-decoration-thickness: 3.5px;
     text-decoration-color: rgb(180, 125, 0);
+    cursor: pointer;
+}
+
+.to-logout {
+    font-size: 28px;
+    margin-left: 24em;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.to-logout:hover {
+    background-color: #4b4b4b;
+    text-decoration: underline;
+    text-decoration-thickness: 3.5px;
+    text-decoration-color: rgb(255, 0, 0);
     cursor: pointer;
 }
 

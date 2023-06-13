@@ -41,12 +41,8 @@ if ($sort == 'asc') {
     $sql .= 'DESC';
 }
 
-
 $stmt = $pdo->prepare($sql);
 $stmt_like = $pdo->prepare($sql_like);
-// $stmt_like->bindValue(':user_id', $user_id, PDO::PARAM_STR);
-// $stmt->bindValue(':todo_id', $todo_id, PDO::PARAM_STR);
-// $stmt->bindValue(':user_id', $user_id, PDO::PARAM_STR);
 
 try {
   $status = $stmt->execute();
@@ -71,13 +67,6 @@ $result_like = $stmt_like->fetchAll(PDO::FETCH_ASSOC);
 // echo "</pre>";
 // exit();
 
-
-//fetchColumn();結果セットの次の行の指定されたカラムの値のみを取得
-// $like_count = $stmt->fetchColumn();
-// var_dump($like_count);
-// exit();
-
-
 // $like_count = $record["like_count"];
 // var_dump($like_count);
 
@@ -90,7 +79,6 @@ foreach ($result as $record) {
     <section class='grid'>
       <div class='each-grid' id=\"{$record['id']}\" value=\"{$record['id']}\">
           <p class='item-title'>{$record["item"]}</p>
-
           <div class='box'>
               <div>
                   <img src='{$record["photo_A"]}' class='photo_A'>
@@ -102,31 +90,18 @@ foreach ($result as $record) {
           </div>
           <p class='item-explanation'>{$record["explanation"]}</p>
           <p class='item-price'>price : ¥ {$record["price"]}</p>
-
-          
-
           <div>
               <button class='no-like' onclick=\"location.href='item-like_create.php?user_id={$user_id}&todo_id={$record["id"]}';\">&#9825; {$record["like_count"]}</button>
           </div>
-
           <div class='edit-delete-box'>
-            <button class='openEditModal' onclick=\"openEditModal('item-edit.php?id={$record['id']}')\">▶︎E</button>
-            <a href='item-delete.php?id={$record["id"]}' class='item-delete'>▶︎D</a>
+            <button class='openEditModal' onclick=\"openEditModal('item-edit.php?id={$record['id']}')\">▶︎E<span class='edit-dit-char-size'>dit</span></button>
+            <a href='item-delete.php?id={$record["id"]}' class='item-delete'>▶︎D<span class='delete-elete-char-size'>elete </span></a>
           </div>
       </div>  
     </section>
     
     ";   
 }
-
-// $output_like = "";
-// foreach ($result_like as $record_like) {
-  //like{$record["like_count"]}でlikeの後にlike数を出力させる"like_count"は連想配列のキー
-//   $output_like .= 
-//     "
-//     ";   
-// }
-
 
 ?>
 

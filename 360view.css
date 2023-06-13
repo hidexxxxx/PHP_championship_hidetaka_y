@@ -15,6 +15,7 @@ a:visited {
 }
 
 #header {
+    /* max-width: 1000px; */
     margin: 0 auto 0px auto;
     border-bottom: solid 1px #909090;
 }
@@ -139,6 +140,12 @@ nav .menu li {
     object-fit: cover;
 }
 
+#output,
+#output-profile-photo {
+    justify-content: flex-end;
+    align-items: center;
+}
+
 #output {
     margin-top: none;
     margin-bottom: none;
@@ -174,189 +181,24 @@ nav .menu li {
     cursor: pointer;
 }
 
-.sort-conditions {
-    float: right;
-    margin-top: 20px;
+.cloudimage-360 {
+    width: 10px;
+    margin-bottom: 10%;
 }
 
-.resister-item,
-.sort-expensive,
-.sort-cheaper,
-.sort-new,
-.sort-old {
-    transition-duration: 0.5s;
-    margin-right: 10px;
+.photo-view {
+    width: 100%;
 }
 
-.resister-item:hover,
-.sort-expensive:hover,
-.sort-cheaper:hover,
-.sort-new:hover,
-.sort-old:hover {
-    background-color: #4b4b4b;
-    text-decoration: underline;
-    text-decoration-thickness: 3.5px;
-    text-decoration-color: rgb(180, 125, 0);
-    cursor: pointer;
-}
-
-.grid {
-    width: 20vh;
-    height: 35vh;
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25vh;
-}
-
-.grid>div {
-    display: grid;
-    place-items: center;
-}
-
-.each-grid {
-    border-bottom: 1px solid white;
-    /* border-right: 1px solid white; */
-}
-
-.box {
+.footer {
+    font: bold;
+    font-size: 15px;
     display: flex;
-    z-index: -100;
-}
-
-.item-title,
-.item-explanation,
-.item-price {
-    z-index: -100;
-}
-
-.photo_A {
-    width: 26.4vh;
-    height: auto;
-    border: 1px solid white;
-}
-
-.half-box {
-    display: flex;
+    justify-content: space-evenly;
     align-items: center;
-    flex-direction: column;
-}
-
-.photo_B {
-    width: 13vh;
-    height: auto;
-    border: 1px solid white;
-}
-
-.photo_C {
-    width: 13vh;
-    height: auto;
-    border: 1px solid white;
-}
-
-.edit-delete-box {
-    display: flex;
-    margin-left: 55%;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
-
-/* 出力されるoutputの▶︎Eと▶︎D */
-.openEditModal,
-.item-delete {
-    margin-left: 10%;
-    transition-duration: 0.5s;
-    border-radius: 20px;
-}
-
-.openEditModal:hover {
-    background-color: orange;
-    color: black;
-    cursor: pointer;
-    border-radius: 20px;
-    border: 2px solid white;
-}
-
-.item-delete:hover {
-    background-color: red;
-    color: black;
-    cursor: pointer;
-    border-radius: 20px;
-    border: 2px solid white;
-}
-
-.openEditModal,
-.item-delete {
-    z-index: 0;
-}
-
-.fieldset-garage-sale {
-    overflow: auto;
-    /*********** ▼掲載するgrid数に合わせて適宜調整▼ *************/
-    height: 2500px;
-    z-index: -1000;
-}
-
-/* スクロールバー非表示 */
-::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-
-.buttonLike {
-    background-color: red;
-    color: white;
-    border-radius: 3px;
-    font-size: 1em;
-    width: auto;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.no-like {
-    background-color: white;
-    color: black;
-    border-radius: 3px;
-    font-size: 1em;
-    width: auto;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.edit-dit-char-size,
-.delete-elete-char-size {
-    font-size: 0.6em;
-}
-
-.to-chat-space-button {
-    font-size: x-large;
-    position: fixed;
-    font: bolder;
-    bottom: 30px;
-    right: 30px;
-    cursor: pointer;
-    width: 120px;
-    height: 120px;
-    border-radius: 80%;
-    background-color: #817f7f;
-    color: white;
-    cursor: pointer;
-    transition-duration: 0.5s;
-}
-
-.to-chat-space-button:hover {
-    font-size: x-large;
-    position: fixed;
-    font: bolder;
-    bottom: 30px;
-    right: 30px;
-    cursor: pointer;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background-color: orange;
-    color: white;
-    cursor: pointer;
+    margin-top: 10%;
+    padding-top: 20px;
+    padding-bottom: 40px;
 }
 
 .wrapper-footer {
@@ -388,7 +230,7 @@ nav .menu-footer li {
 }
 
 .copy-rights {
-    color: rgb(180, 125, 0);
+    color: rgb(175, 122, 0);
     display: flex;
     justify-content: center;
     align-items: center;
