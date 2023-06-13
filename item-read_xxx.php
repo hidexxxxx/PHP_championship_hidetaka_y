@@ -71,9 +71,7 @@ foreach ($result as $record) {
 
           <p class='item-explanation'>{$record["explanation"]}</p>
           <p class='item-price'>price : ¥ {$record["price"]}</p>
-          <div class='star'>x</div>
-          <br>
-            <a href='item-like_create.php?user_id={$user_id}&todo_id={$record["id"]}'>{$record["like_count"]}</a>
+            <a href='item-like_create.php?user_id={$user_id}&todo_id={$record["id"]}' onclick=\"changeColor()\" id='changeColor'> &#9825; {$record["like_count"]}</a>
           <div class='edit-delete-box'>
             <button class='openEditModal' onclick=\"openEditModal('item-edit.php?id={$record['id']}')\">▶︎E</button>
             <a href='item-delete.php?id={$record["id"]}' class='item-delete'>▶︎D</a>
@@ -83,7 +81,6 @@ foreach ($result as $record) {
     
     ";   
 }
-
 ?>
 
 
@@ -241,7 +238,31 @@ foreach ($result as $record) {
         function openEditModal(url) {
           $("#modalEdit").css("display", "block");
           $("#modalEdit").attr("src", url);
-      }
+        }
+
+        function changeColor() {
+          let element = $("#changeColor");
+          let currentColor = element.css("color");
+
+          if (currentColor === "rgb(255, 0, 0)") {
+            // 色が赤の場合、色を初期値に戻す
+            element.css("color", "");
+            localStorage.removeItem("colorState"); // クリックされた状態を削除
+          } else {
+            // 色が赤でない場合、色を赤に変える
+            element.css("color", "red");
+            localStorage.setItem("colorState", "on"); // クリックされた状態を保存
+          }
+        }
+        // ページの読み込み時に状態を復元
+        $(document).ready(function() {
+          let colorState = localStorage.getItem("colorState");
+          if (colorState === "on") {
+            $("#changeColor").css("color", "red");
+          }
+        });       
+        
+
     </script>
 
   </main>

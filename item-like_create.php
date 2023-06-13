@@ -58,7 +58,6 @@ if ($like_count !== 0) {
   $sql = 'INSERT INTO like_table (id, user_id, todo_id, created_at) VALUES (NULL, :user_id, :todo_id, now())';
 }
 
-
 //情報をインサートで実行する。以下のsql分だけでは自作自演ができてしまうので上記if文のelseに入れる
 // $sql = 'INSERT INTO like_table (id, user_id, todo_id, created_at) VALUES (NULL, :user_id, :todo_id, now())';
 
@@ -75,10 +74,5 @@ try {
 
 header("Location:item-read.php");
 exit();
-
-
-
-
-
 
 ?>

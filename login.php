@@ -39,6 +39,7 @@ check_session_id(); -->
           <button class="login-button">Login</button>
         </div>
         <a href="login_resister.php" class="to-resister">▶︎ Register</a>
+        <a href="logout.php">logout</a>
       </div>
     
   </form>
