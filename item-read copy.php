@@ -7,9 +7,7 @@ include('login_function.php');
 check_session_id();
 
 
-//データベースから返ってきたデータ
 $user_id = $_SESSION['user_id'];
-// $todo_id = $_SESSION['todo_id'];
 
 //DB接続
 $pdo = connect_to_db();
@@ -22,7 +20,8 @@ $field = $_GET['field'] ?? 'price';
 // SQL作成&実行.まずはmyadminのsqlタブから動作確認した後にここに記載する
 $sql = 'SELECT * FROM items_table LEFT OUTER JOIN ( SELECT todo_id, COUNT(id) AS like_count FROM like_table GROUP BY todo_id ) AS result_table ON items_table.id = result_table.todo_id ORDER BY ';
 
-// $sql = 'SELECT * FROM items_table LEFT OUTER JOIN ( SELECT todo_id, COUNT(id) AS like_count FROM like_table GROUP BY todo_id ) AS result_table ON items_table.id = result_table.todo_id WHERE user_id = :user_id ORDER BY ';
+//▼いいねカウントなしのsql文
+// $sql = 'SELECT * FROM items_table ORDER BY ';
 
 // ソート対象のフィールドによってSQL文を変更
 if ($field == 'price') {
@@ -38,10 +37,7 @@ if ($sort == 'asc') {
     $sql .= 'DESC';
 }
 
-
 $stmt = $pdo->prepare($sql);
-// $stmt->bindValue(':todo_id', $todo_id, PDO::PARAM_STR);
-// $stmt->bindValue(':user_id', $user_id, PDO::PARAM_STR);
 
 try {
   $status = $stmt->execute();
@@ -50,15 +46,13 @@ try {
   exit();
 }
 
-//fetchAll(PDO::FETCH_ASSOC);結果セットの全ての行を取得し連想配列の形式で返す
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-//fetchColumn();結果セットの次の行の指定されたカラムの値のみを取得
-$like_count = $stmt->fetchColumn();
+
 
 // 結果表示実行
 $output = "";
 foreach ($result as $record) {
-  //like{$record["like_count"]}でlikeの後にlike数を出力させる"like_count"は連想配列のキー
+  //like{$record["like_count"]}でlikeの後にlike数を出力させる、"like_count"は連想配列のキー
   $output .= 
     "
     <section class='grid'>
@@ -74,22 +68,12 @@ foreach ($result as $record) {
                   <img src='{$record["photo_C"]}' class='photo_C'>
               </div>
           </div>
+
           <p class='item-explanation'>{$record["explanation"]}</p>
           <p class='item-price'>price : ¥ {$record["price"]}</p>
-
-
-         
-
-          <div>
-            <?php if ($like_count !== 0) : ?>
-               <a href='item-like_create.php?user_id={$user_id}&todo_id={$record["id"]}'>&#9829; {$record["like_count"]}</a>
-            <?php else : ?>
-               <a href='item-like_create.php?user_id={$user_id}&todo_id={$record["id"]}'>&#9825; {$record["like_count"]}</a>
-            <?php endif; ?>
-          </div>
-
-
-          
+          <div class='star'>x</div>
+          <br>
+            <a href='item-like_create.php?user_id={$user_id}&todo_id={$record["id"]}'>{$record["like_count"]}</a>
           <div class='edit-delete-box'>
             <button class='openEditModal' onclick=\"openEditModal('item-edit.php?id={$record['id']}')\">▶︎E</button>
             <a href='item-delete.php?id={$record["id"]}' class='item-delete'>▶︎D</a>
