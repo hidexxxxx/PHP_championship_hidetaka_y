@@ -15,6 +15,7 @@ a:visited {
 }
 
 #header {
+    /* max-width: 1000px; */
     margin: 0 auto 0px auto;
     border-bottom: solid 1px #909090;
 }
@@ -139,12 +140,18 @@ nav .menu li {
     object-fit: cover;
 }
 
+#output,
+#output-profile-photo {
+    justify-content: flex-end;
+    align-items: center;
+}
+
 #output {
     margin-top: none;
     margin-bottom: none;
 }
 
-.menu-collection {
+.menu-archive {
     text-decoration: underline;
     text-decoration-thickness: 3.5px;
     text-decoration-color: whitesmoke;
@@ -174,190 +181,124 @@ nav .menu li {
     cursor: pointer;
 }
 
-.sort-conditions {
-    float: right;
-    margin-top: 20px;
+.album-A {
+    margin-left: 20%;
+    margin-right: 20%;
+    color: black;
 }
 
-.resister-item,
-.sort-expensive,
-.sort-cheaper,
-.sort-new,
-.sort-old {
-    transition-duration: 0.5s;
-    margin-right: 10px;
-}
-
-.resister-item:hover,
-.sort-expensive:hover,
-.sort-cheaper:hover,
-.sort-new:hover,
-.sort-old:hover {
-    background-color: #4b4b4b;
-    text-decoration: underline;
-    text-decoration-thickness: 3.5px;
-    text-decoration-color: rgb(180, 125, 0);
-    cursor: pointer;
-}
-
-.grid {
-    width: 20vh;
-    height: 35vh;
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25vh;
-}
-
-.grid>div {
-    display: grid;
-    place-items: center;
-}
-
-.each-grid {
-    border-bottom: 1px solid white;
-    /* border-right: 1px solid white; */
-}
-
-.box {
+.no1,
+.no2,
+.no3,
+.no4,
+.no5,
+.no6,
+.no7,
+.no8 {
     display: flex;
-    z-index: -100;
-}
-
-.item-title,
-.item-explanation,
-.item-price {
-    z-index: -100;
-}
-
-.photo_A {
-    width: 26.4vh;
-    height: auto;
-    border: 1px solid white;
-}
-
-.half-box {
-    display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+    background-color: #f5f5f5;
 }
 
-.photo_B {
-    width: 13vh;
-    height: auto;
-    border: 1px solid white;
+.no1-photo,
+.no2-photo,
+.no3-photo,
+.no4-photo,
+.no5-photo,
+.no6-photo,
+.no7-photo,
+.no8-photo {
+    width: 50%;
 }
 
-.photo_C {
-    width: 13vh;
-    height: auto;
-    border: 1px solid white;
+.no1-text,
+.no2-text,
+.no3-text,
+.no4-text,
+.no5-text,
+.no6-text,
+.no7-text,
+.no8-text {
+    width: 50%;
+    padding-left: 48px;
+    padding-right: 48px;
 }
 
-.edit-delete-box {
+.mypage {
     display: flex;
-    margin-left: 55%;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    justify-content: center;
 }
 
-/* 出力されるoutputの▶︎Eと▶︎D */
-.openEditModal,
-.item-delete {
-    margin-left: 10%;
-    transition-duration: 0.5s;
-    border-radius: 20px;
+.form {
+    width: 80%;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-left: 20%;
+    /* border: 1px solid #f5f5f5; */
 }
 
-.openEditModal:hover {
-    background-color: orange;
-    color: black;
+.form-p,
+.photo-p {
+    font-size: 20px;
+}
+
+#title-text,
+#contents-text {
+    width: 75%;
+    margin-bottom: 3%;
+    font-size: 18px;
+}
+
+.control-button {
+    margin-left: -3.5%;
+    font-size: 20px;
+    display: flex;
+    padding-top: 0%;
+}
+
+.save-button,
+.clear-button {
+    font-size: 20px;
+    width: 80px;
+    height: 50px;
+    background-color: #000000;
+    color: rgb(159, 116, 14);
+    display: block;
+    line-height: 1;
+    margin-right: 1vh;
+    margin-left: vh;
+    text-align: center;
     cursor: pointer;
-    border-radius: 20px;
-    border: 2px solid white;
+    box-shadow: 0.5px 0.5px black;
 }
 
-.item-delete:hover {
-    background-color: red;
-    color: black;
+
+
+
+
+
+
+
+
+
+
+
+
+.mypage-button {
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    background-color: #000000;
+    color: rgb(159, 116, 14);
+    display: block;
+    line-height: 1;
+    margin-top: 5%;
+    margin-bottom: 1%;
     cursor: pointer;
-    border-radius: 20px;
-    border: 2px solid white;
+    box-shadow: 0.5px 0.5px black;
 }
 
-.openEditModal,
-.item-delete {
-    z-index: 0;
-}
-
-.fieldset-garage-sale {
-    overflow: auto;
-    /*********** ▼掲載するgrid数に合わせて適宜調整▼ *************/
-    height: 2500px;
-    z-index: -1000;
-}
-
-/* スクロールバー非表示 */
-::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-
-.buttonLike {
-    background-color: red;
-    color: white;
-    border-radius: 3px;
-    font-size: 1em;
-    width: auto;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.no-like {
-    background-color: white;
-    color: black;
-    border-radius: 3px;
-    font-size: 1em;
-    width: auto;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.edit-dit-char-size,
-.delete-elete-char-size {
-    font-size: 0.6em;
-}
-
-.to-chat-space-button {
-    font-size: x-large;
-    position: fixed;
-    font: bolder;
-    bottom: 30px;
-    right: 30px;
-    cursor: pointer;
-    width: 120px;
-    height: 120px;
-    border-radius: 80%;
-    background-color: #817f7f;
-    color: white;
-    cursor: pointer;
-    transition-duration: 0.5s;
-}
-
-.to-chat-space-button:hover {
-    font-size: x-large;
-    position: fixed;
-    font: bolder;
-    bottom: 30px;
-    right: 30px;
-    cursor: pointer;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background-color: orange;
-    color: white;
-    cursor: pointer;
-}
 
 .wrapper-footer {
     position: relative;
@@ -388,7 +329,7 @@ nav .menu-footer li {
 }
 
 .copy-rights {
-    color: rgb(180, 125, 0);
+    color: rgb(175, 122, 0);
     display: flex;
     justify-content: center;
     align-items: center;

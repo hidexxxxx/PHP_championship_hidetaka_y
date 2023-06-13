@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resister.css">
+    <title>spotlight × Cloud Garage</title>
+</head>
+
+<body>
+    <header id="header">
+        <div class="logo-box">
+            <a href="archive.html"><img class="brand-logo" src="img/logo/brand-logo.png" alt="logo"></a>
+        </div>
+        <!-- <p class="hamburger-menu-p">Menu</p> -->
+        <div class="hamburger-menu">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <nav class="wrapper">
+            <ul class="menu">
+                <li class="menu-top"><a href="#">TOP</a></li>
+                <li class="menu-collection"><a href="collection.html">COLLECTION</a></li>
+                <li class="menu-archive"><a href="archive.html">ARCHIVE</a></li>
+                <li class="menu-category"><a href="#">CATEGORY</a></li>
+                <li class="login-login"><a href="login.php">LOGIN</a></li>
+                <li class="login-contact"><a href="contact_input.php">CONTACT</a></li>
+            </ul>
+
+            <ul class="login">
+                <div class="profiles">
+                    <!-- プロフィール画像表示 -->
+                    <div id="output-profile-photo">
+                        <img id="profile-photo" src="" alt="User Photo" onclick="location.href='resister.html';">
+                    </div>
+                    <!-- プロフィール名表示 -->
+                    <h5 id="output"></h5>
+                </div>
+            </ul>
+        </nav>
+
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- //▼以下firestore databaseからテキストデータ引き出し -->
+        <script type="module">
+
+            import {
+                initializeApp
+            }
+                from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+
+            import {
+                getFirestore,
+                collection,
+                addDoc,
+                serverTimestamp,
+                query,
+                orderBy,
+                onSnapshot,
+            } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyDADUT7tlyvD8G-WfBpVQoUaY6fRxvvug8",
+                authDomain: "jschampionship-f5265.firebaseapp.com",
+                projectId: "jschampionship-f5265",
+                storageBucket: "jschampionship-f5265.appspot.com",
+                messagingSenderId: "171502542751",
+                appId: "1:171502542751:web:0e4129428f53af19ce67aa"
+            };
+
+            // Firebase App を初期化して連携させる
+            const app = initializeApp(firebaseConfig);
+            //firestoreのオブジェクトを取得
+            const db = getFirestore(app);
+
+            const q = query(collection(db, "user"), orderBy("time", "desc"));
+
+            onSnapshot(q, (querySnapshot) => {
+
+                //複雑な形のため必要なデータのみ抽出した「オブジェクト形式の配列」に変換
+                const documents = [];
+                querySnapshot.forEach((doc) => {
+                    console.log(doc.data());
+                    const document = {
+                        id: doc.id,
+                        data: doc.data(),
+                    };
+                    documents.push(document);
+                });
+
+                const htmlElements = [];
+                documents.forEach(function (document) {
+                    htmlElements.push(`
+                                <ui id="${documents[0].id}">
+                                    <h5>${documents[0].data.name}</h5>
+                                </ui>
+                            `);
+                });
+
+                $("#output").html(htmlElements[0]);
+
+            });
+
+        </script>
+
+        <!-- ▼以下プロフィール画像を引き出し -->
+        <script type="module">
+
+            import {
+                initializeApp
+            } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+
+            import {
+                getStorage,
+                ref,
+                getDownloadURL
+            } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyDADUT7tlyvD8G-WfBpVQoUaY6fRxvvug8",
+                authDomain: "jschampionship-f5265.firebaseapp.com",
+                projectId: "jschampionship-f5265",
+                storageBucket: "jschampionship-f5265.appspot.com",
+                messagingSenderId: "171502542751",
+                appId: "1:171502542751:web:0e4129428f53af19ce67aa"
+            };
+
+            const app = initializeApp(firebaseConfig);
+
+            const storage = getStorage(app);
+
+            const storageRef = ref(storage, "user-photo");
+            // console.log(storageRef);
+
+            const imageElement = document.getElementById("profile-photo");
+            // console.log(imageElement);
+
+            getDownloadURL(storageRef)
+                .then((url) => {
+                    imageElement.src = url;
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+
+        </script>
+    </header>
+
+    <main>
+        <div class="form-set">
+            <div class="profile-photo">
+                <label class="profile-label">▼プロフィール画像を設定</label>
+                <div id="result"></div>
+                <div class="profile-photo-button">
+                    <input type="file" id="imageInput">
+                    <button type="button" onclick="uploadImage()">アップロード</button>
+                </div>
+            </div>
+            <br>
+            <div class="input-name-class">
+                <input type="text" id="input-name" placeholder="好きな名前(表示名)">
+            </div>
+            <br>
+            <div class="input-birth-class">
+                <input type="text" id="input-birth" placeholder="生年月日 (例:1993年1月29日はの場合：1993/1/29)">
+            </div>
+            <br>
+            <div class="input-commit-class">
+                <textarea rows="4" id="input-commit" placeholder="一言コメント"></textarea>
+            </div>
+            <ul class="control-button">
+                <button type="button" class="save-button" id="save">Upload</button>
+                <button type="button" class="clear-button" id="clear">Delete</button>
+            </ul>
+        </div>
+
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- ▼以下ブラウザへ画像のアップロード -->
+        <script>
+
+            function uploadImage() {
+                let input = document.getElementById("imageInput");
+                const file = input.files[0];
+                const reader = new FileReader();
+
+                //eはイベントオブジェクトでイベントが発生した時に自動的に生成されるオブジェクト
+                reader.onload = function (e) {
+                    //新しいImageオブジェクトを作成。Imageオブジェクトで画像を表示させる
+                    const img = new Image();
+                    //読み込んだ画像ファイルのデータを Image オブジェクトのsrcプロパティに設定
+                    img.src = e.target.result;
+                    // 20vh = 20% of viewport height
+                    img.width = window.innerHeight * 0.3;
+
+                    const resultDiv = document.getElementById("result");
+                    resultDiv.innerHTML = "";
+                    //指定された要素に新しい子要素を追加する。子要素化してグルーピングできる
+                    resultDiv.appendChild(img);
+                };
+
+                //選択された画像ファイルを、FileReader オブジェクトを使用して Data URL 形式で読み込み、画像を表示
+                reader.readAsDataURL(file);
+            };
+
+        </script>
+
+        <!-- ▼プロフィール画像のアップロード。firebaseのverが9.xxなら以下の書き方、8.xxなら以前の書き方。firebaseのドキュメント要参照 -->
+        <script type="module">
+
+            import {
+                initializeApp
+            } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+
+            import {
+                getStorage,
+                ref,
+                uploadBytes
+            } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
+
+            const firebaseConfig = {
+                apiKey: "",
+                authDomain: "jschampionship-f5265.firebaseapp.com",
+                projectId: "jschampionship-f5265",
+                storageBucket: "jschampionship-f5265.appspot.com",
+                messagingSenderId: "171502542751",
+                appId: "1:171502542751:web:0e4129428f53af19ce67aa"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+
+            const storage = getStorage(app);
+
+            //jQueryのonclickを使って関数を発火させる
+            $("#save").on("click", function () {
+                const storageRef = ref(storage, "user-photo");
+                const file = document.getElementById('imageInput').files[0];
+
+                //uploadBytes関数を使ってstorageにfileをアップロードする
+                uploadBytes(storageRef, file).then((snapshot) => {
+
+                    // アップロードが完了したときの処理
+                    console.log('Upload complete');
+                    alert('Upload complete!!');
+                });
+            });
+
+        </script>
+
+        <!-- 表示時間の調整コード -->
+        <script>
+
+            function convertTimestampToDatetime(timestamp) {
+                const _d = timestamp ? new Date(timestamp * 1000) : new Date();
+                const Y = _d.getFullYear();
+                const m = (_d.getMonth() + 1).toString().padStart(2, '0');
+                const d = _d.getDate().toString().padStart(2, '0');
+                const H = _d.getHours().toString().padStart(2, '0');
+                const i = _d.getMinutes().toString().padStart(2, '0');
+                const s = _d.getSeconds().toString().padStart(2, '0');
+                return `${Y}/${m}/${d} ${H}:${i}:${s}`;
+            }
+
+        </script>
+
+        <!-- プロフィールのテキストデータの保存 -->
+        <script type="module">
+
+            //▼以下firestore databaseへのテキストデータアップロード
+            import {
+                initializeApp
+            }
+                from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+
+            import {
+                getFirestore,
+                collection,
+                addDoc,
+                serverTimestamp,
+                query,
+                orderBy,
+                onSnapshot,
+            } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyDADUT7tlyvD8G-WfBpVQoUaY6fRxvvug8",
+                authDomain: "jschampionship-f5265.firebaseapp.com",
+                projectId: "jschampionship-f5265",
+                storageBucket: "jschampionship-f5265.appspot.com",
+                messagingSenderId: "171502542751",
+                appId: "1:171502542751:web:0e4129428f53af19ce67aa"
+            };
+
+            // Firebase App を初期化して連携させる
+            const app = initializeApp(firebaseConfig);
+            //firestoreのオブジェクトを取得
+            const db = getFirestore(app);
+
+            $("#save").on("click", function () {
+                // 送信時に必要な処理。
+
+                const postData = {
+                    name: $("#input-name").val(),
+                    birth: $("#input-birth").val(),
+                    comment: $("#input-commit").val(),
+                    time: serverTimestamp(),
+                };
+
+                addDoc(collection(db, "user"), postData);
+            });
+
+            //データ取得処理
+
+            const q = query(collection(db, "user"), orderBy("time", "desc"));
+
+            onSnapshot(q, (querySnapshot) => {
+                console.log(querySnapshot.docs);
+
+                //複雑な形のため必要なデータのみ抽出した「オブジェクト形式の配列」に変換
+                const documents = [];
+                querySnapshot.forEach((doc) => {
+                    console.log(doc.data());
+                    const document = {
+                        id: doc.id,
+                        data: doc.data(),
+                    };
+                    documents.push(document);
+                });
+
+
+                const htmlElements = [];
+                documents.forEach(function (document) {
+                    htmlElements.push(`
+                            <li id="${documents[0].id}">
+                                <p>${documents[0].data.name}</p>
+                               
+                            </li>
+                        `);
+                });
+
+                $("#output").html(htmlElements[0]);
+            });
+
+        </script>
+
+    </main>
+
+</body>
+
+
+<footer>
+    <nav class="wrapper-footer">
+        <ul class="menu-footer">
+            <li><a href="#">初めての方へ</a></li>
+            <li><a href="#">よくある質問</a></li>
+            <li><a href="#">利用規約</a></li>
+            <li><a href="#">特定商品取引法</a></li>
+            <li><a href="#">プライバシーポリシー</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+            <li><a href="#">会社概要</a></li>
+        </ul>
+    </nav>
+    <h5 class="copy-rights">©️2023 Cloud Garage Co,.Ltd. All Rights Reserved</h5>
+</footer>
+
+</html>

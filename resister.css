@@ -15,6 +15,7 @@ a:visited {
 }
 
 #header {
+    /* max-width: 1000px; */
     margin: 0 auto 0px auto;
     border-bottom: solid 1px #909090;
 }
@@ -139,15 +140,15 @@ nav .menu li {
     object-fit: cover;
 }
 
+#output,
+#output-profile-photo {
+    justify-content: flex-end;
+    align-items: center;
+}
+
 #output {
     margin-top: none;
     margin-bottom: none;
-}
-
-.menu-collection {
-    text-decoration: underline;
-    text-decoration-thickness: 3.5px;
-    text-decoration-color: whitesmoke;
 }
 
 .menu-top,
@@ -174,188 +175,105 @@ nav .menu li {
     cursor: pointer;
 }
 
-.sort-conditions {
-    float: right;
-    margin-top: 20px;
-}
-
-.resister-item,
-.sort-expensive,
-.sort-cheaper,
-.sort-new,
-.sort-old {
-    transition-duration: 0.5s;
-    margin-right: 10px;
-}
-
-.resister-item:hover,
-.sort-expensive:hover,
-.sort-cheaper:hover,
-.sort-new:hover,
-.sort-old:hover {
-    background-color: #4b4b4b;
-    text-decoration: underline;
-    text-decoration-thickness: 3.5px;
-    text-decoration-color: rgb(180, 125, 0);
-    cursor: pointer;
-}
-
-.grid {
-    width: 20vh;
-    height: 35vh;
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25vh;
-}
-
-.grid>div {
-    display: grid;
-    place-items: center;
-}
-
-.each-grid {
-    border-bottom: 1px solid white;
-    /* border-right: 1px solid white; */
-}
-
-.box {
+#output {
     display: flex;
-    z-index: -100;
+    justify-content: center;
 }
 
-.item-title,
-.item-explanation,
-.item-price {
-    z-index: -100;
+.form-set {
+    margin-top: 10vh;
 }
 
-.photo_A {
-    width: 26.4vh;
-    height: auto;
-    border: 1px solid white;
-}
-
-.half-box {
+.profile-label {
     display: flex;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
+    text-align: center;
 }
 
-.photo_B {
-    width: 13vh;
-    height: auto;
-    border: 1px solid white;
-}
-
-.photo_C {
-    width: 13vh;
-    height: auto;
-    border: 1px solid white;
-}
-
-.edit-delete-box {
+#result {
     display: flex;
-    margin-left: 55%;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-/* 出力されるoutputの▶︎Eと▶︎D */
-.openEditModal,
-.item-delete {
-    margin-left: 10%;
-    transition-duration: 0.5s;
-    border-radius: 20px;
+.profile-photo-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 2vh;
 }
 
-.openEditModal:hover {
-    background-color: orange;
-    color: black;
-    cursor: pointer;
-    border-radius: 20px;
-    border: 2px solid white;
+.input-name-class,
+.input-commit-class,
+.input-birth-class {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 30px;
 }
 
-.item-delete:hover {
-    background-color: red;
-    color: black;
-    cursor: pointer;
-    border-radius: 20px;
-    border: 2px solid white;
+#input-name,
+#input-birth {
+    font-size: 15px;
+    width: 60vh;
+    height: 3vh;
 }
 
-.openEditModal,
-.item-delete {
-    z-index: 0;
+#input-commit {
+    font-size: 15px;
+    width: 60vh;
+    height: auto;
 }
 
-.fieldset-garage-sale {
-    overflow: auto;
-    /*********** ▼掲載するgrid数に合わせて適宜調整▼ *************/
-    height: 2500px;
-    z-index: -1000;
+.input-name-label label,
+.input-commit-label,
+.input-birth-label label {
+    width: 200px;
 }
 
-/* スクロールバー非表示 */
-::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-
-.buttonLike {
-    background-color: red;
-    color: white;
-    border-radius: 3px;
-    font-size: 1em;
-    width: auto;
-    margin-top: 10px;
+li {
+    list-style-type: none;
+    display: table-cell;
     cursor: pointer;
 }
 
-.no-like {
-    background-color: white;
-    color: black;
-    border-radius: 3px;
-    font-size: 1em;
-    width: auto;
-    margin-top: 10px;
-    cursor: pointer;
+.control-button {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 4%;
+    column-gap: 2em;
+    /* margin-right: 5%; */
 }
 
-.edit-dit-char-size,
-.delete-elete-char-size {
-    font-size: 0.6em;
-}
-
-.to-chat-space-button {
-    font-size: x-large;
-    position: fixed;
+.save-button,
+.clear-button {
+    font-size: 25px;
     font: bolder;
-    bottom: 30px;
-    right: 30px;
-    cursor: pointer;
-    width: 120px;
-    height: 120px;
-    border-radius: 80%;
+    color: white;
     background-color: #817f7f;
-    color: white;
+    border-color: black;
+    padding: 5px 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     cursor: pointer;
     transition-duration: 0.5s;
 }
 
-.to-chat-space-button:hover {
-    font-size: x-large;
-    position: fixed;
-    font: bolder;
-    bottom: 30px;
-    right: 30px;
-    cursor: pointer;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
+.save-button:hover {
     background-color: orange;
-    color: white;
+    cursor: pointer;
+}
+
+.clear-button:hover {
+    background-color: red;
     cursor: pointer;
 }
 
@@ -388,7 +306,7 @@ nav .menu-footer li {
 }
 
 .copy-rights {
-    color: rgb(180, 125, 0);
+    color: rgb(175, 122, 0);
     display: flex;
     justify-content: center;
     align-items: center;
