@@ -15,9 +15,12 @@ a:visited {
 }
 
 #header {
-    /* max-width: 1000px; */
+    background-color: rgb(35, 35, 35);
+    position: fixed;
+    z-index: 999;
     margin: 0 auto 0px auto;
-    border-bottom: solid 1px #909090;
+    border-bottom: solid 2px #909090;
+    top: 0;
 }
 
 .brand-logo {
@@ -104,7 +107,7 @@ nav .menu li {
     margin-bottom: none;
 }
 
-.login-contact {
+.menu-archive {
     text-decoration: underline;
     text-decoration-thickness: 3.5px;
     text-decoration-color: whitesmoke;
@@ -127,7 +130,7 @@ nav .menu li {
 .menu-resister:hover,
 .login-login:hover,
 .login-contact:hover {
-    background-color: #4b4b4b;
+    /* background-color: #4b4b4b; */
     text-decoration: underline;
     text-decoration-thickness: 3.5px;
     text-decoration-color: rgb(180, 125, 0);
@@ -135,69 +138,7 @@ nav .menu li {
 }
 
 fieldset {
-    margin-top: 2em;
-}
-
-
-.to-contact-read-link {
-    font-size: 25px;
-    font: bolder;
-    color: white;
-    background-color: #817f7f;
-    border-color: black;
-    padding: 8px 50px;
-    cursor: pointer;
-    transition-duration: 0.5s;
-}
-
-.to-contact-read-link:hover {
-    background-color: orange;
-    cursor: pointer;
-}
-
-.name {
-    margin-top: 1em;
-}
-
-.name,
-.email {
-    font-size: 18px;
-    width: 40%;
-    margin-bottom: 1em;
-}
-
-.contents {
-    font-size: 18px;
-    width: 80%;
-    margin-bottom: 2em;
-}
-
-
-
-
-
-
-.send-button-box {
-    display: flex;
-    justify-content: center;
-}
-
-.send-button {
-    font-size: 25px;
-    font: bolder;
-    color: white;
-    background-color: #817f7f;
-    border-color: black;
-    padding: 8px 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition-duration: 0.5s;
-}
-
-.send-button:hover {
-    background-color: orange;
-    cursor: pointer;
+    margin-top: 15em;
 }
 
 .wrapper-footer {

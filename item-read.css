@@ -15,8 +15,12 @@ a:visited {
 }
 
 #header {
+    background-color: rgb(35, 35, 35);
+    position: fixed;
+    z-index: 1;
     margin: 0 auto 0px auto;
-    border-bottom: solid 1px #909090;
+    border-bottom: solid 2px #909090;
+    top: 0;
 }
 
 .brand-logo {
@@ -44,59 +48,12 @@ a:visited {
     overflow: hidden;
 }
 
-.hamburger-menu {
-    width: 30px;
-    height: 20px;
-    position: relative;
-    cursor: pointer;
-    margin-left: 8%;
-    overflow: hidden;
-}
-
-.line {
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: black;
-}
-
-.line:nth-child(1) {
-    top: 0;
-}
-
-.line:nth-child(2) {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.line:nth-child(3) {
-    bottom: 0;
-}
-
-.line {
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: whitesmoke;
-}
-
-.line:nth-child(1) {
-    top: 0;
-}
-
-.line:nth-child(2) {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.line:nth-child(3) {
-    bottom: 0;
-}
-
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: -15px;
+    margin-bottom: 5px;
 }
 
 nav .menu {
@@ -167,19 +124,42 @@ nav .menu li {
 .menu-resister:hover,
 .login-login:hover,
 .login-contact:hover {
-    background-color: #4b4b4b;
+    /* background-color: #4b4b4b; */
     text-decoration: underline;
     text-decoration-thickness: 3.5px;
     text-decoration-color: rgb(180, 125, 0);
     cursor: pointer;
 }
 
-.sort-conditions {
-    float: right;
-    margin-top: 20px;
+.to-list-modal {
+    padding-top: 6em;
+    padding-bottom: 2em;
+    margin-top: 9em;
 }
 
-.resister-item,
+.openModal {
+    font-size: 25px;
+    font: bolder;
+    color: white;
+    background-color: #817f7f;
+    border-color: black;
+    padding: 8px 50px;
+    margin-top: 10%;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.openModal:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+.sort-conditions {
+    float: right;
+    margin-top: -1.5em;
+}
+
 .sort-expensive,
 .sort-cheaper,
 .sort-new,
@@ -188,12 +168,10 @@ nav .menu li {
     margin-right: 10px;
 }
 
-.resister-item:hover,
 .sort-expensive:hover,
 .sort-cheaper:hover,
 .sort-new:hover,
 .sort-old:hover {
-    background-color: #4b4b4b;
     text-decoration: underline;
     text-decoration-thickness: 3.5px;
     text-decoration-color: rgb(180, 125, 0);
@@ -262,7 +240,7 @@ nav .menu li {
 }
 
 /* 出力されるoutputの▶︎Eと▶︎D */
-.openEditModal,
+/* .openEditModal,
 .item-delete {
     margin-left: 10%;
     transition-duration: 0.5s;
@@ -283,6 +261,31 @@ nav .menu li {
     cursor: pointer;
     border-radius: 20px;
     border: 2px solid white;
+} */
+
+.openEditModal,
+.item-delete {
+    margin-left: 10%;
+    padding-right: 0.2em;
+    transition-duration: 0.5s;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+.openEditModal:hover {
+    /* background-color: orange; */
+    /* color: black; */
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1.5px solid orange;
+}
+
+.item-delete:hover {
+    /* background-color: red; */
+    /* color: black; */
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1.5px solid red;
 }
 
 .openEditModal,
@@ -292,6 +295,7 @@ nav .menu li {
 
 .fieldset-garage-sale {
     overflow: auto;
+    padding-top: 3em;
     /*********** ▼掲載するgrid数に合わせて適宜調整▼ *************/
     height: 2500px;
     z-index: -1000;
@@ -361,7 +365,8 @@ nav .menu li {
 
 .wrapper-footer {
     position: relative;
-    padding-bottom: 30px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     display: flex;
     justify-content: center;
     align-items: center;

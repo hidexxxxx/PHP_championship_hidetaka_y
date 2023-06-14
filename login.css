@@ -104,28 +104,35 @@ legend {
 .to-resister {
     justify-content: flex-start;
     font-size: 20px;
-    /* margin-left: 15em; */
+    padding-left: 0.2em;
+    padding-right: 0.3em;
     cursor: pointer;
     transition-duration: 0.5s;
 }
 
 .to-resister:hover {
-    background-color: #4b4b4b;
+    padding-left: 0.2em;
+    padding-right: 0.3em;
+    /* background-color: #4b4b4b; */
     text-decoration: underline;
-    text-decoration-thickness: 3.5px;
-    text-decoration-color: rgb(180, 125, 0);
+    text-decoration-color: orange;
     cursor: pointer;
 }
 
 .to-logout {
     font-size: 28px;
-    margin-left: 24em;
+    padding-right: 0.3em;
+    margin-left: 30em;
+    padding-left: 0.2em;
+    padding-right: 0.3em;
     cursor: pointer;
     transition-duration: 0.5s;
 }
 
 .to-logout:hover {
-    background-color: #4b4b4b;
+    /* background-color: #4b4b4b; */
+    padding-left: 0.2em;
+    padding-right: 0.3em;
     text-decoration: underline;
     text-decoration-thickness: 3.5px;
     text-decoration-color: rgb(255, 0, 0);

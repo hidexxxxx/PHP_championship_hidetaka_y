@@ -111,27 +111,24 @@ foreach ($result as $record) {
 <!DOCTYPE html>
 <html lang="ja">
   
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="reset.css">
-  <link rel="stylesheet" type="text/css" href="sanitize.css">
-  <link rel="stylesheet" href="item-read.css">
-  <link rel="stylesheet" href="item-resister-modal.css">
-  <link rel="stylesheet" href="item-edit-modal.css">
-   
-</head>
-<body>
+  <head>
 
-    <header id="header">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="sanitize.css">
+    <link rel="stylesheet" href="item-read.css">
+    <link rel="stylesheet" href="item-resister-modal.css">
+    <link rel="stylesheet" href="item-edit-modal.css">
+    <link rel="stylesheet" type="text/css" href="header-menu-move.css">
+    <title>Garage CORSA</title>
+  </head>
+  
+  <body>
+
+    <header id="header" class="DownMove">
         <div class="logo-box">
             <a href="archive.html"><img class="brand-logo" src="img/logo/brand-logo.png" alt="logo"></a>
-        </div>
-      
-        <div class="hamburger-menu">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
         </div>
         <nav class="wrapper">
             <ul class="menu">
@@ -167,130 +164,129 @@ foreach ($result as $record) {
 
     </header>
 
-  <main>
-
-    <!-- ▼以下アイテム情報登録のためのモーダル -->
-    <!-- モーダルオープンのためのボタン -->
-    <a id="openModal" class="openModal"> ▶︎ To list (出品)</a>
-    
-    <!-- ▼モーダルエリアここから -->
-    <section id="modalArea" class="modalArea">
-          <form action="item-create.php" method="POST" enctype="multipart/form-data">
-              <fieldset class="fieldset-modal">
-                <p class="item-resister-p"> - 商品登録画面 - </p>
-                <!-- <br> -->
-                <div>
-                    <input type="text" name="item" class="item" placeholder="*商品名を入力してください">
-                </div>
-                <!-- <br> -->
-                <div>
-                    Photo ①: <input type="file" name="photo_A" class="resister_form_photo_A" accept=".jpg,.jpeg,.png" required>
-                    Photo ②: <input type="file" name="photo_B" class="resister_form_photo_B" accept=".jpg,.jpeg,.png" required>
-                    Photo ③: <input type="file" name="photo_C" class="resister_form_photo_C" accept=".jpg,.jpeg,.png" required>
-                </div>
-                <!-- <br> -->
-                <div>
-                  <textarea rows=5 name="explanation" class="explanation" placeholder="＊商品の説明を記入してください"></textarea>
-                </div>
-                <!-- <br> -->
-                <div>
-                  <input type="input" name="price" class="price" placeholder="＊金額を記入して下さい(例：10000円の場合「10000」と記入)">
-                </div>
-                <!-- <br> -->
-                <div class="submit-button-box">
-                    <button type="submit" class="resister-button">▶︎登録</button>
-                </div>                
-              </fieldset>
-            </form>
-        <div id="closeModal" class="closeModal">
-          ×
-        </div>
-        
+    <main>
+      <div id="grobalNaviStart"></div>
+      <br>
+      <br>
+      <!-- ▼以下アイテム情報登録のためのモーダル -->
+      <!-- モーダルオープンのためのボタン -->
+      <div class="to-list-modal">
+        <a id="openModal" class="openModal"> ▶︎ To list (出品)</a>
       </div>
-    </section>
-    <!-- モーダルエリアここまで -->
-
-    <div class='sort-container'>
-      <div class='sort-conditions'>
-        <!-- 高い順へのソートリンク -->
-        <a href="item-read.php?sort=desc&field=price" class='sort-expensive'>▲価格の高い順</a>
-        <!-- 安い順へのソートリンク -->
-        <a href="item-read.php?sort=asc&field=price" class='sort-cheaper'>▽価格の安い順</a>
-        <!-- 新しい順へのソートリンク -->
-        <a href="item-read.php?sort=desc&field=uploaded_at" class='sort-new'>▲新しい順</a>
-        <!-- 古い順へのソートリンク -->
-        <a href="item-read.php?sort=asc&field=uploaded_at" class='sort-old'>▽古い順</a>
-      </div>
-    </div>
-
-    <!-- 以下の空行は必要。sort-containerが入るため -->
-    <br>
-    <br>
-    <br>
-    <br>
-   
-    <fieldset class="fieldset-garage-sale">
-
-      <legend>Garage Sale !!</legend>
-    
-        <section class='grid'>
-
-          <!-- 商品編集用のモーダル -->
-          <div id="modalEditArea" class="modalEditArea">  
-            <iframe id = "modalEdit" class="modalEdit" style="visibility:visible;"></iframe>                 
-          </div>  
-
-          <!-- phpでタグ作って結果を表示させる書き方↓-->
-          <?php echo $output ?>
-
+      <!-- ▼モーダルエリアここから -->
+      <section id="modalArea" class="modalArea">
+            <form action="item-create.php" method="POST" enctype="multipart/form-data">
+                <fieldset class="fieldset-modal">
+                  <p class="item-resister-p"> - 商品登録画面 - </p>
+                  <!-- <br> -->
+                  <div>
+                      <input type="text" name="item" class="item" placeholder="*商品名を入力してください">
+                  </div>
+                  <!-- <br> -->
+                  <div>
+                      Photo ①: <input type="file" name="photo_A" class="resister_form_photo_A" accept=".jpg,.jpeg,.png" required>
+                      Photo ②: <input type="file" name="photo_B" class="resister_form_photo_B" accept=".jpg,.jpeg,.png" required>
+                      Photo ③: <input type="file" name="photo_C" class="resister_form_photo_C" accept=".jpg,.jpeg,.png" required>
+                  </div>
+                  <!-- <br> -->
+                  <div>
+                    <textarea rows=3 name="explanation" class="explanation" placeholder="＊商品の説明を記入してください"></textarea>
+                  </div>
+                  <!-- <br> -->
+                  <div>
+                    <input type="input" name="price" class="price" placeholder="＊金額を記入して下さい(例：10000円の場合「10000」と記入)">
+                  </div>
+                  <!-- <br> -->
+                  <div class="submit-button-box">
+                      <button type="submit" class="resister-button">▶︎登録</button>
+                  </div>                
+                </fieldset>
+              </form>
+          <div id="closeModal" class="closeModal">
+            ×
+          </div>
           
+        </div>
+      </section>
+      <!-- モーダルエリアここまで -->
 
-        </section>
-      <!-- </div> -->
+      <div class='sort-container'>
+        <div class='sort-conditions'>
+          <!-- 高い順へのソートリンク -->
+          <a href="item-read.php?sort=desc&field=price" class='sort-expensive'>▲価格の高い順</a>
+          <!-- 安い順へのソートリンク -->
+          <a href="item-read.php?sort=asc&field=price" class='sort-cheaper'>▽価格の安い順</a>
+          <!-- 新しい順へのソートリンク -->
+          <a href="item-read.php?sort=desc&field=uploaded_at" class='sort-new'>▲新しい順</a>
+          <!-- 古い順へのソートリンク -->
+          <a href="item-read.php?sort=asc&field=uploaded_at" class='sort-old'>▽古い順</a>
+        </div>
+      </div>
 
-    </fieldset>
-
-    <a href="chat.html"><button type="button" id="to-chat-space-button" class="to-chat-space-button">▶︎ To<br>Chat<br>Space</button></a>
-
-    <!-- ↓body閉じタグ直前でjQueryを読み込む -->
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- 以下の空行は必要。sort-containerが入るため -->
+      <!-- <br> -->
     
-    <!-- input用のモーダルコード -->
-    <script src="item-input-modal.js"></script>
+      <fieldset class="fieldset-garage-sale">
 
-    <script>
-      function openEditModal(url) {
-          $("#modalEdit").css("display", "block");
-          $("#modalEdit").attr("src", url);
-      };
-
-
-
-
-      const result_id = <?php echo json_encode($result_like); ?>;
+        <legend>Garage Sale !!</legend>
       
-      const value = $('.each-grid').attr('value');
-      // console.log(value);
-      // console.log(result_id[0].todo_id);
-      for (let result_id2 of result_id) {
-        // console.log(result_id2.todo_id);
-        const box_id = result_id2.todo_id;
-        //button1が見つかった時にはno-likeクラスを削除し代わりにbutton2クラスを追加
-        console.log($("#" + box_id).find("button.no-like"));
-        const findbtn = $("#" + box_id).find("button.no-like");
-        console.log(findbtn);
+          <section class='grid'>
+
+            <!-- 商品編集用のモーダル -->
+            <div id="modalEditArea" class="modalEditArea">  
+              <iframe id = "modalEdit" class="modalEdit" style="visibility:visible;"></iframe>                 
+            </div>  
+
+            <!-- phpでタグ作って結果を表示させる書き方↓-->
+            <?php echo $output ?>
+
+          </section>
+        <!-- </div> -->
+
+      </fieldset>
+
+      <a href="chat.html"><button type="button" id="to-chat-space-button" class="to-chat-space-button">▶︎ To<br>Chat<br>Space</button></a>
+
+      <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+      <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      
+      <!-- グローバルナビゲーションでメニューバー表示 -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="header-grobalNavi-move.js"></script>
+      
+      <!-- 商品登録input用のモーダルコード -->
+      <script src="item-input-modal.js"></script>
+
+      <!-- 商品情報の編集用モーダルの起動用コード -->
+      <script src="item-edit-modal.js"></script>
+
+      <!-- いいね機能発動用コード -->
+      <script>
+
+        const result_id = <?php echo json_encode($result_like); ?>;
         
-      
-      // ボタンがクリックされた場合の処理
-      $(findbtn).removeClass("no-like").addClass("buttonLike");
-      };
+        const value = $('.each-grid').attr('value');
+        // console.log(value);
+        // console.log(result_id[0].todo_id);
 
-      
-      
+        for (let result_id2 of result_id) {
+        // console.log(result_id2.todo_id);
+          const box_id = result_id2.todo_id;
+          //button1が見つかった時にはno-likeクラスを削除し代わりにbutton2クラスを追加
+          console.log($("#" + box_id).find("button.no-like"));
+          
+          const findbtn = $("#" + box_id).find("button.no-like");
+          console.log(findbtn);
 
-    </script>
+        // ボタンがクリックされた場合の処理
+        $(findbtn).removeClass("no-like").addClass("buttonLike");
+        
+        };
 
-  </main>
+      </script>
+
+    </main>
 
   </body>
 
