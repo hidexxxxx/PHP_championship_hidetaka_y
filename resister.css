@@ -98,6 +98,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: -45px;
+    margin-bottom: -25px;
 }
 
 nav .menu {
@@ -168,7 +170,7 @@ nav .menu li {
 .menu-resister:hover,
 .login-login:hover,
 .login-contact:hover {
-    background-color: #4b4b4b;
+    /* background-color: #4b4b4b; */
     text-decoration: underline;
     text-decoration-thickness: 3.5px;
     text-decoration-color: rgb(180, 125, 0);
@@ -220,13 +222,13 @@ nav .menu li {
 #input-name,
 #input-birth {
     font-size: 15px;
-    width: 60vh;
+    width: 80vh;
     height: 3vh;
 }
 
 #input-commit {
     font-size: 15px;
-    width: 60vh;
+    width: 80vh;
     height: auto;
 }
 
@@ -279,6 +281,7 @@ li {
 
 .wrapper-footer {
     position: relative;
+    margin-top: 30px;
     padding-bottom: 30px;
     display: flex;
     justify-content: center;

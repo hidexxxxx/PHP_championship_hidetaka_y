@@ -5,19 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="archive.css">
+    <link rel="stylesheet" type="text/css" href="header-menu-move.css">
     <title>spotlight × Cloud Garage</title>
 </head>
 
 <body>
-    <header id="header">
+    <header id="header" class="DownMove">
         <div class="logo-box">
             <a href="archive.html"><img class="brand-logo" src="img/logo/brand-logo.png" alt="logo"></a>
-        </div>
-        <!-- <p class="hamburger-menu-p">Menu</p> -->
-        <div class="hamburger-menu">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
         </div>
         <nav class="wrapper">
             <ul class="menu">
@@ -45,113 +40,17 @@
         <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-        <!-- //▼以下firestore databaseからテキストデータ引き出し -->
-        <script type="module">
+        <!-- プロフィールテキストの読み込みコード -->
+        <script src="profile_textData_read.js" type="module"></script>
 
-            import {
-                initializeApp
-            }
-                from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        <!-- プロフィール画像の読み込みコード -->
+        <script src="profile_photoData_read.js" type="module"></script>
 
-            import {
-                getFirestore,
-                collection,
-                addDoc,
-                serverTimestamp,
-                query,
-                orderBy,
-                onSnapshot,
-            } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-            const firebaseConfig = {
-                apiKey: "AIzaSyDADUT7tlyvD8G-WfBpVQoUaY6fRxvvug8",
-                authDomain: "jschampionship-f5265.firebaseapp.com",
-                projectId: "jschampionship-f5265",
-                storageBucket: "jschampionship-f5265.appspot.com",
-                messagingSenderId: "171502542751",
-                appId: "1:171502542751:web:0e4129428f53af19ce67aa"
-            };
-
-            // Firebase App を初期化して連携させる
-            const app = initializeApp(firebaseConfig);
-            //firestoreのオブジェクトを取得
-            const db = getFirestore(app);
-
-            const q = query(collection(db, "user"), orderBy("time", "desc"));
-
-            onSnapshot(q, (querySnapshot) => {
-
-                //複雑な形のため必要なデータのみ抽出した「オブジェクト形式の配列」に変換
-                const documents = [];
-                querySnapshot.forEach((doc) => {
-                    console.log(doc.data());
-                    const document = {
-                        id: doc.id,
-                        data: doc.data(),
-                    };
-                    documents.push(document);
-                });
-
-                const htmlElements = [];
-                documents.forEach(function (document) {
-                    htmlElements.push(`
-                            <ui id="${documents[0].id}">
-                                <h5>${documents[0].data.name}</h5>
-                            </ui>
-                        `);
-                });
-
-                $("#output").html(htmlElements[0]);
-
-            });
-
-        </script>
-
-        <!-- ▼以下プロフィール画像を引き出し -->
-        <script type="module">
-
-            import {
-                initializeApp
-            } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-
-            import {
-                getStorage,
-                ref,
-                getDownloadURL
-            } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
-
-            const firebaseConfig = {
-                apiKey: "AIzaSyDADUT7tlyvD8G-WfBpVQoUaY6fRxvvug8",
-                authDomain: "jschampionship-f5265.firebaseapp.com",
-                projectId: "jschampionship-f5265",
-                storageBucket: "jschampionship-f5265.appspot.com",
-                messagingSenderId: "171502542751",
-                appId: "1:171502542751:web:0e4129428f53af19ce67aa"
-            };
-
-            const app = initializeApp(firebaseConfig);
-
-            const storage = getStorage(app);
-
-            const storageRef = ref(storage, "user-photo");
-            // console.log(storageRef);
-
-            const imageElement = document.getElementById("profile-photo");
-            // console.log(imageElement);
-
-            getDownloadURL(storageRef)
-                .then((url) => {
-                    imageElement.src = url;
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-
-        </script>
     </header>
 
     <body>
         <main>
+            <div id="grobalNaviStart"></div>
             <div class="now-working">
                 <h3 class="now-working-h">NOW　WORKING</h3>
                 <div class="slider">
@@ -250,6 +149,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
+        <!-- グローバルナビゲーションでメニューバー表示 -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="header-grobalNavi-move.js"></script>
 
         <script>
 

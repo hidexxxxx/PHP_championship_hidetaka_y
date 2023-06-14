@@ -4,20 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="contact_input.css">
-    <title>spotlight × Cloud Garage</title>
+    <link rel="stylesheet" type="text/css" href="contact_input.css">
+    <link rel="stylesheet" type="text/css" href="header-menu-move.css">
+    <title>Garage CORSA</title>
 </head>
 
 <body>
-    <header id="header">
+    <header id="header" class="DownMove">
         <div class="logo-box">
             <a href="archive.html"><img class="brand-logo" src="img/logo/brand-logo.png" alt="logo"></a>
-        </div>
-        <!-- <p class="hamburger-menu-p">Menu</p> -->
-        <div class="hamburger-menu">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
         </div>
         <nav class="wrapper">
             <ul class="menu">
@@ -41,40 +36,48 @@
             </ul>
         </nav>
 
-        <!-- プロフィールテキストの読み込み -->
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- プロフィールテキストの読み込みコード -->
         <script src="profile_textData_read.js" type="module"></script>
 
-        <!-- プロフィール画像の読み込み -->
+        <!-- プロフィール画像の読み込みコード -->
         <script src="profile_photoData_read.js" type="module"></script>
-        
+
     </header>
 
-  <form action="contact_create.php" method="POST">
-  <p><a href="contact_read.php">▶︎過去の問い合わせ内容確認</a></p>      
-  <fieldset>
-            <legend>お問い合わせフォーム</legend>          
-            <div>
-                <label>氏名</label>
-                <input type="text" placeholder="氏名を記入してください" name="name">
-            </div>
-            <div>
-                <label>メールアドレス</label>
-                <input type="email" placeholder="メールアドレスを記入してください" name="email">
-            </div>
-            <div>
-                <label>お問い合わせ内容</label>
-                <textarea rows="3" placeholder="お問い合わせ内容を記入してください" name="contents"></textarea>
-            </div>
-            
-            <div>
-                <button>Send</button>
-            </div>
-        </fieldset>
-  </form>
+        <main>
+            <div id="grobalNaviStart"></div>
+            <br>
+            <br>
+            <form action="contact_create.php" method="POST">
+                <p><a href="contact_read.php" class="to-contact-read-link">▶︎過去の問い合わせ内容確認</a></p>      
+                <fieldset>
+                    <legend>お問い合わせフォーム</legend>          
+                    <div>
+                        <input type="text" class="name" placeholder="氏名を記入してください" name="name">
+                    </div>
+                    <div>
+                        <input type="email" class="email" placeholder="メールアドレスを記入してください" name="email">
+                    </div>
+                    <div>
+                        <textarea rows="8" class="contents" placeholder="お問い合わせ内容を記入してください" name="contents"></textarea>
+                    </div>
+                    <div class="send-button-box">
+                        <button class="send-button">送信</button>
+                    </div>
+                </fieldset>
+            </form>
+        </main>
 
+        <!-- グローバルナビゲーションでメニューバー表示 -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="header-grobalNavi-move.js"></script>
 
-
-
+    </body>
 
     <footer>
         <nav class="wrapper-footer">
@@ -90,7 +93,5 @@
         </nav>
         <h5 class="copy-rights">©️2023 Cloud Garage Co,.Ltd. All Rights Reserved</h5>
     </footer>
-    </body>
-
-
+    
 </html>

@@ -47,20 +47,15 @@ $jsonData = json_encode($dataArray);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="archive_A.css">
-    <title>spotlight × Cloud Garage</title>
+    <link rel="stylesheet" href="contact_read.css">
+    <link rel="stylesheet" type="text/css" href="header-menu-move.css">
+    <title>Garage CORSA</title>
 </head>
 
 <body>
-    <header id="header">
+    <header id="header" class="DownMove">
         <div class="logo-box">
             <a href="archive.html"><img class="brand-logo" src="img/logo/brand-logo.png" alt="logo"></a>
-        </div>
-        <!-- <p class="hamburger-menu-p">Menu</p> -->
-        <div class="hamburger-menu">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
         </div>
         <nav class="wrapper">
             <ul class="menu">
@@ -83,38 +78,56 @@ $jsonData = json_encode($dataArray);
                 </div>
             </ul>
         </nav>
+
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- プロフィールテキストの読み込みコード -->
+        <script src="profile_textData_read.js" type="module"></script>
+
+        <!-- プロフィール画像の読み込みコード -->
+        <script src="profile_photoData_read.js" type="module"></script>
+
     </header>
 
-     <a href="contact_input.php">▶お問い合わせ入力欄へ戻る</a>
+    <main>
+    <div id="grobalNaviStart"></div>
+        <br>
+        <br>
+
+    <a href="contact_input.php">▶お問い合わせ入力欄へ戻る</a>
     <fieldset>
     <legend>お問い合わせ内容確認画面</legend>
     
-  <!-- $dataはループ内で使用する変数名 -->
-   <?php foreach ($dataArray as $data) {
-        //csvファイルでは「,」を区切りとして分割しているので「,」ごとに分かれて
-        $dataItems = explode(',', $data);
-        $name = $dataItems[0];
-        $email = $dataItems[1];
-        $contents = $dataItems[2];
-    ?>
-        <div>
-            <h4>名前：<?= $name ?></h4>
-            <p>メールアドレス：<?= $email ?></p>
-            <p>問い合わせ内容：<?= $contents ?></p>
-        </div>
-        <!-- <hr>は水平線の横棒を入れて区切れる -->
-        <hr>
+    <!-- $dataはループ内で使用する変数名 -->
+    <?php foreach ($dataArray as $data) {
+            //csvファイルでは「,」を区切りとして分割しているので「,」ごとに分かれて
+            $dataItems = explode(',', $data);
+            $name = $dataItems[0];
+            $email = $dataItems[1];
+            $contents = $dataItems[2];
+        ?>
+            <div>
+                <h4>名前：<?= $name ?></h4>
+                <p>メールアドレス：<?= $email ?></p>
+                <p>問い合わせ内容：<?= $contents ?></p>
+            </div>
+            <!-- <hr>は水平線の横棒を入れて区切れる -->
+            <hr>
     <?php } ?>
 
     </fieldset>
    
 
-  <script>
-    let dataArray = <?php echo $jsonData; ?>;
-    console.log(dataArray); // データの表示
-</script>
+    <script>
+        let dataArray = <?php echo $jsonData; ?>;
+        console.log(dataArray); // データの表示
+    </script>
 
-    
+   </main>
+   </body>
+
 
     <footer>
         <nav class="wrapper-footer">

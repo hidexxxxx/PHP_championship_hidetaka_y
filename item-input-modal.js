@@ -1,3 +1,5 @@
+// 商品登録用inputのモーダルコード
+
 $(function () {
     $('#openModal').click(function () {
         $('#modalArea').fadeIn();

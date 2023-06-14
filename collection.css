@@ -15,8 +15,12 @@ a:visited {
 }
 
 #header {
+    background-color: rgb(35, 35, 35);
+    position: fixed;
+    z-index: 999;
     margin: 0 auto 0px auto;
-    border-bottom: solid 1px #909090;
+    border-bottom: solid 2px #909090;
+    top: 0;
 }
 
 .brand-logo {
@@ -44,59 +48,12 @@ a:visited {
     overflow: hidden;
 }
 
-.hamburger-menu {
-    width: 30px;
-    height: 20px;
-    position: relative;
-    cursor: pointer;
-    margin-left: 8%;
-    overflow: hidden;
-}
-
-.line {
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: black;
-}
-
-.line:nth-child(1) {
-    top: 0;
-}
-
-.line:nth-child(2) {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.line:nth-child(3) {
-    bottom: 0;
-}
-
-.line {
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    background-color: whitesmoke;
-}
-
-.line:nth-child(1) {
-    top: 0;
-}
-
-.line:nth-child(2) {
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.line:nth-child(3) {
-    bottom: 0;
-}
-
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: -45px;
+    margin-bottom: -25px;
 }
 
 nav .menu {
@@ -173,7 +130,7 @@ nav .menu li {
 .menu-resister:hover,
 .login-login:hover,
 .login-contact:hover {
-    background-color: #4b4b4b;
+    /* background-color: #4b4b4b; */
     text-decoration: underline;
     text-decoration-thickness: 3.5px;
     text-decoration-color: rgb(180, 125, 0);
@@ -209,6 +166,10 @@ nav .menu li {
     text-shadow: 1px 1px 1px #333;
     color: white;
     padding-bottom: 105px;
+}
+
+.spaceForGrobalNaviStart {
+    margin-top: 17em;
 }
 
 .to-garage-sale-link {
